@@ -1,0 +1,446 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Agency ad account - Premium Facebook Accounts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1317F2;
+            --primary-dark: #0C5DC7;
+            --success: #50B981;
+            --warning: #559E0B;
+            --danger: #DF4444;
+            --dark: #0f372a;
+            --light: #f8fafc;
+            --gold: #DE9D00;
+            --premium: #DC4400FF;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif; background:#f1f5f9; color:#1e293b; line-height:1.6; }
+
+        @keyframes liveGradient { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+        @keyframes livePulse { 0%{box-shadow:0 0 0 0 rgba(255,255,255,0.7)} 70%{box-shadow:0 0 0 15px rgba(255,255,255,0)} 100%{box-shadow:0 0 0 0 rgba(255,255,255,0)} }
+        @keyframes scrollText { 0%{transform:translateX(100%)} 100%{transform:translateX(-100%)} }
+        @keyframes glow { 0%,100%{box-shadow:0 0 20px rgba(24,119,242,0.3)} 50%{box-shadow:0 0 40px rgba(24,119,242,0.6)} }
+        @keyframes slideUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+
+        .live-bar { background:linear-gradient(90deg,#FF6B6B,#FF8E53,#FF6B6B); background-size:200% 100%; animation:liveGradient 3s ease infinite; color:white; padding:6px 0; overflow:hidden; }
+        .live-bar-inner { max-width:1300px; margin:0 auto; padding:0 12px; display:flex; align-items:center; gap:8px; }
+        .live-dot { width:8px; height:8px; background:white; border-radius:50%; flex-shrink:0; animation:livePulse 1.5s infinite; }
+        .live-text { font-weight:700; font-size:11px; flex-shrink:0; }
+        .live-scroll-wrap { flex:1; overflow:hidden; }
+        .live-scroll { white-space:nowrap; animation:scrollText 25s linear infinite; font-size:10px; display:inline-block; }
+        .live-badge { background:rgba(255,255,255,0.25); padding:3px 10px; border-radius:20px; font-size:10px; font-weight:700; flex-shrink:0; }
+
+        .site-header { background:white; box-shadow:0 1px 3px rgba(0,0,0,0.05); position:sticky; top:0; z-index:1000; }
+        .header-inner { max-width:1300px; margin:0 auto; padding:10px 16px; display:flex; justify-content:space-between; align-items:center; }
+        .logo-wrap { display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--dark); }
+        .logo-icon { width:36px; height:36px; background:linear-gradient(135deg,var(--primary),var(--premium)); border-radius:10px; display:flex; align-items:center; justify-content:center; color:white; font-size:18px; flex-shrink:0; }
+        .logo-text { font-size:18px; font-weight:800; }
+        .logo-sub { font-size:9px; color:#64748b; display:block; line-height:1; font-weight:500; }
+
+        .main-nav ul { display:flex; list-style:none; gap:2px; }
+        .main-nav a { padding:8px 14px; border-radius:8px; color:#475569; font-weight:500; font-size:13px; text-decoration:none; transition:all 0.2s; cursor:pointer; }
+        .main-nav a:hover,.main-nav a.active { background:#eff6ff; color:var(--primary); }
+
+        .header-actions { display:flex; align-items:center; gap:8px; }
+        .btn { padding:8px 14px; border-radius:8px; font-weight:600; font-size:12px; cursor:pointer; border:none; display:inline-flex; align-items:center; gap:5px; transition:all 0.2s; text-decoration:none; white-space:nowrap; }
+        .btn-primary { background:var(--primary); color:white; } .btn-primary:hover { background:var(--primary-dark); }
+        .btn-outline { border:2px solid #e2e8f0; color:#475569; background:white; }
+        .btn-success { background:var(--success); color:white; }
+        .cart-btn { position:relative; cursor:pointer; padding:8px; color:#475569; }
+        .cart-count { position:absolute; top:0; right:0; background:var(--danger); color:white; width:17px; height:17px; border-radius:50%; font-size:10px; display:flex; align-items:center; justify-content:center; font-weight:700; }
+        .mobile-toggle { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:#475569; }
+
+        .hero-section { background:linear-gradient(135deg,#0f172a 0%,#1e293b 30%,#0f172a 60%,#1a1a2e 100%); color:white; padding:40px 0 50px; text-align:center; position:relative; overflow:hidden; }
+        .hero-content { position:relative; z-index:1; max-width:700px; margin:0 auto; padding:0 16px; }
+        .hero-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.1); padding:8px 18px; border-radius:50px; margin-bottom:15px; font-size:12px; }
+        .hero-title { font-size:2rem; font-weight:900; margin-bottom:8px; }
+        .hero-title span { background:linear-gradient(135deg,#60a5fa,#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+        .hero-subtitle { font-size:0.95rem; color:#94a3b8; margin-bottom:20px; }
+        .hero-buttons { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:25px; }
+        .hero-btn-primary { background:linear-gradient(135deg,var(--primary),var(--premium)); color:white; padding:12px 28px; border-radius:50px; font-weight:700; font-size:14px; text-decoration:none; display:inline-flex; align-items:center; gap:8px; animation:glow 2s infinite; }
+        .hero-btn-outline { border:2px solid rgba(255,255,255,0.3); color:white; padding:12px 28px; border-radius:50px; font-weight:700; font-size:14px; text-decoration:none; }
+        .hero-stats { display:flex; gap:30px; justify-content:center; flex-wrap:wrap; }
+        .hero-stat .stat-number { font-size:1.8rem; font-weight:900; background:linear-gradient(135deg,#60a5fa,#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+        .hero-stat .stat-label { font-size:10px; color:#94a3b8; text-transform:uppercase; }
+
+        .section-wrap { padding:30px 0; }
+        .container { max-width:1300px; margin:0 auto; padding:0 16px; }
+        .section-title { font-size:22px; font-weight:800; }
+        .filter-bar { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:20px; background:white; padding:10px 14px; border-radius:12px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+        .search-box { position:relative; flex:1; min-width:160px; }
+        .search-box input { width:100%; padding:10px 12px 10px 35px; border:2px solid #e2e8f0; border-radius:10px; font-size:13px; outline:none; background:#f8fafc; }
+        .search-box input:focus { border-color:var(--primary); background:white; }
+        .search-box i { position:absolute; left:12px; top:50%; transform:translateY(-50%); color:#94a3b8; font-size:13px; }
+        .filter-pills { display:flex; gap:5px; flex-wrap:wrap; }
+        .filter-pill { padding:6px 12px; border-radius:20px; font-weight:600; cursor:pointer; border:none; font-size:11px; white-space:nowrap; background:#f1f5f9; color:#64748b; }
+        .filter-pill.active { background:var(--primary); color:white; }
+
+        /* ⚡ FIXED: Product Grid with proper image handling */
+        .product-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:25px; row-gap:35px; }
+        @media (max-width:1024px) { .product-grid { grid-template-columns:repeat(2, 1fr); gap:20px; row-gap:30px; } }
+        @media (max-width:640px) { .product-grid { grid-template-columns:1fr; gap:16px; row-gap:25px; } }
+
+        .product-card { background:white; border-radius:16px; overflow:hidden; cursor:pointer; transition:all 0.3s; border:1px solid #e2e8f0; display:flex; flex-direction:column; }
+        .product-card:hover { transform:translateY(-5px); box-shadow:0 15px 30px rgba(0,0,0,0.1); border-color:var(--primary); }
+
+        /* ⚡ FIXED: Image container */
+        .product-image-wrap { width:100%; height:200px; background:linear-gradient(135deg,#eff6ff,#f5f3ff); position:relative; overflow:hidden; flex-shrink:0; }
+        .product-image-wrap img { width:100%; height:100%; object-fit:cover; display:block; }
+        .product-img-placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:4rem; color:#93c5fd; opacity:0.3; }
+
+        .product-badge { position:absolute; top:10px; right:10px; background:linear-gradient(135deg,#F59E0B,#F97316); color:white; padding:5px 12px; border-radius:20px; font-size:10px; font-weight:700; z-index:2; }
+        .product-category { position:absolute; top:10px; left:10px; background:rgba(0,0,0,0.7); color:white; padding:5px 12px; border-radius:20px; font-size:10px; font-weight:600; z-index:2; }
+        .product-rating { position:absolute; bottom:10px; left:10px; background:rgba(0,0,0,0.5); color:var(--gold); padding:5px 12px; border-radius:20px; font-size:10px; font-weight:600; z-index:2; }
+        .product-info { padding:16px; flex:1; display:flex; flex-direction:column; }
+        .product-name { font-size:15px; font-weight:700; margin-bottom:4px; }
+        .product-desc { color:#64748b; font-size:11px; margin-bottom:10px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+        .product-price-wrap { display:flex; align-items:center; gap:6px; margin-bottom:10px; flex-wrap:wrap; }
+        .product-price { font-size:19px; font-weight:800; color:var(--primary); }
+        .original-price { text-decoration:line-through; color:#94a3b8; font-size:12px; }
+        .discount-badge { background:var(--danger); color:white; padding:2px 8px; border-radius:20px; font-size:10px; font-weight:700; }
+        .product-actions { display:flex; gap:6px; margin-top:auto; }
+        .add-cart-btn,.buy-btn { flex:1; padding:9px 6px; border-radius:8px; text-align:center; font-size:11px; font-weight:700; cursor:pointer; border:none; }
+        .add-cart-btn { background:var(--primary); color:white; }
+        .buy-btn { background:var(--success); color:white; }
+        .stock-info { font-size:10px; margin-top:8px; display:flex; justify-content:space-between; flex-wrap:wrap; }
+        .in-stock { color:var(--success); } .out-stock { color:var(--danger); }
+
+        .search-product-card { background:white; border-radius:14px; overflow:hidden; cursor:pointer; transition:all 0.3s; border:1px solid #e2e8f0; display:flex; flex-direction:column; }
+        .search-product-card:hover { transform:translateY(-3px); box-shadow:0 10px 25px rgba(0,0,0,0.1); }
+
+        /* ⚡ FIXED: Modal image */
+        .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.7); backdrop-filter:blur(5px); z-index:2000; display:none; align-items:center; justify-content:center; padding:16px; }
+        .modal-overlay.active { display:flex; }
+        .modal-box { background:white; border-radius:20px; padding:24px; max-width:600px; width:100%; max-height:85vh; overflow-y:auto; animation:slideUp 0.3s ease; }
+        .modal-close-btn { position:absolute; top:12px; right:12px; background:white; width:32px; height:32px; border-radius:50%; border:none; font-size:16px; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.1); z-index:5; }
+
+        .detail-image-wrap { width:100%; height:250px; background:linear-gradient(135deg,#eff6ff,#f5f3ff); border-radius:14px; overflow:hidden; margin-bottom:16px; display:flex; align-items:center; justify-content:center; }
+        .detail-image-wrap img { width:100%; height:100%; object-fit:cover; display:block; }
+
+        .cart-sidebar { position:fixed; right:0; top:0; height:100%; width:100%; max-width:400px; background:white; z-index:1500; transform:translateX(100%); transition:transform 0.3s; display:flex; flex-direction:column; box-shadow:-5px 0 30px rgba(0,0,0,0.15); }
+        .cart-sidebar.open { transform:translateX(0); }
+        .cart-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1499; display:none; }
+        .cart-overlay.active { display:block; }
+
+        .dash-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:10px; margin-bottom:20px; }
+        @media (min-width:640px) { .dash-grid { grid-template-columns:repeat(4, 1fr); } }
+        .dash-card { background:white; padding:16px; border-radius:12px; text-align:center; }
+        .dash-card .dash-number { font-size:22px; font-weight:800; }
+        .dash-card .dash-label { font-size:10px; color:#64748b; text-transform:uppercase; }
+
+        .table-wrap { overflow-x:auto; }
+        table { width:100%; border-collapse:collapse; font-size:11px; min-width:500px; }
+        table th { background:#f8fafc; padding:8px; text-align:left; font-weight:600; border-bottom:2px solid #e2e8f0; }
+        table td { padding:8px; border-bottom:1px solid #e2e8f0; }
+
+        .status-confirmed { background:#D1FAE5; color:#065F46; padding:3px 8px; border-radius:15px; font-size:10px; font-weight:600; }
+        .status-pending { background:#FEF3C7; color:#92400E; padding:3px 8px; border-radius:15px; font-size:10px; font-weight:600; }
+
+        .chat-widget { position:fixed; right:14px; bottom:14px; z-index:999; display:flex; flex-direction:column; gap:8px; }
+        .chat-btn { width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:20px; box-shadow:0 4px 15px rgba(0,0,0,0.3); text-decoration:none; }
+        .chat-wa { background:#25D366; } .chat-tg { background:#0088cc; }
+
+        .site-footer { background:var(--dark); color:white; padding:30px 0 15px; margin-top:30px; }
+        .footer-grid { max-width:1300px; margin:0 auto; padding:0 16px; display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:20px; }
+        .footer-grid h4 { font-size:14px; margin-bottom:8px; }
+        .footer-grid p,.footer-grid li { font-size:11px; color:#94a3b8; margin-bottom:4px; }
+        .footer-grid ul { list-style:none; } .footer-grid a { color:#94a3b8; text-decoration:none; }
+        .footer-bottom { text-align:center; font-size:10px; color:#64748b; margin-top:20px; padding-top:15px; border-top:1px solid #1e293b; }
+
+        @media (max-width:640px) {
+            .hero-title { font-size:1.5rem; }
+            .main-nav { display:none; }
+            .main-nav.open { display:block; position:absolute; top:100%; left:0; right:0; background:white; box-shadow:0 10px 30px rgba(0,0,0,0.15); padding:10px; }
+            .main-nav.open ul { flex-direction:column; }
+            .mobile-toggle { display:block; }
+            .product-image-wrap { height:180px; }
+            .detail-image-wrap { height:200px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LIVE BAR -->
+    <div class="live-bar">
+        <div class="live-bar-inner">
+            <span class="live-dot"></span>
+            <span class="live-text">🔴 LIVE:</span>
+            <div class="live-scroll-wrap"><span class="live-scroll">🔥 "🚀 Welcome to Adprofb.com – Your Trusted Agency! our all Account Full Spending Guarantee & 100% Replacement Warranty on ALL accounts. 24/7 Support available. ⚠️ Please contact our Live Support immediately after placing your order!</span></div>
+            <span class="live-badge">⚡ ACTIVE</span>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="#" class="logo-wrap" onclick="scrollToTop()">
+                <div class="logo-icon"><i class="fab fa-facebook"></i></div>
+                <div><span class="logo-text">ADPROFB</span><span class="logo-sub">Your Trusted Agency</span></div>
+            </a>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="#" onclick="scrollToTop();return false;" class="active">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="https://adprofb.com/checker">Checker</a></li>
+                    <li><a href="https://adprofb.com/protools">Protools</a></li>
+                    <li><a href="https://adprofb.com/namsogen">Namsogen</a></li>
+                    <li><a href="https://t.me/adprofb">Channels</a></li>
+                    <li><a href="https://t.me/adprofb2">Groups</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="cart-btn" onclick="toggleCart();return false;"><i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span></a>
+                <button class="btn btn-primary" onclick="showLoginModal()"><i class="fas fa-user"></i> Login</button>
+                <span id="loggedInUser" style="display:none; font-weight:600; font-size:12px; cursor:pointer; color:var(--primary);" onclick="showDashboard()"></span>
+                <button id="logoutBtn" class="btn btn-outline" style="display:none;" onclick="logoutUser()"><i class="fas fa-sign-out-alt"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-badge"><i class="fas fa-crown"></i> #1 Trusted Marketplace</div>
+            <h1 class="hero-title">Premium <span>Facebook</span> Accounts</h1>
+            <p class="hero-subtitle">Credit Lines • Ad Funds • Verified BM • Aged Accounts • Instant Delivery</p>
+            <div class="hero-buttons">
+                <a href="#products" class="hero-btn-primary"><i class="fas fa-shopping-bag"></i> Explore Products</a>
+                <a href="#contact" class="hero-btn-outline"><i class="fas fa-headset"></i> Contact</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat"><div class="stat-number">50K+</div><div class="stat-label">Customers</div></div>
+                <div class="hero-stat"><div class="stat-number">100K+</div><div class="stat-label">Sold</div></div>
+                <div class="hero-stat"><div class="stat-number">4.9★</div><div class="stat-label">Rating</div></div>
+                <div class="hero-stat"><div class="stat-number">24/7</div><div class="stat-label">Support</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="section-wrap">
+        <div class="container">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;flex-wrap:wrap;">
+                <h2 class="section-title">Products <span id="productCount" style="font-size:12px;color:#64748b;font-weight:400;"></span></h2>
+            </div>
+            <div class="filter-bar">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="filter-pills">
+                    <button onclick="filterProducts('all')" class="filter-pill active">All</button>
+                    <button onclick="filterProducts('Credit Line')" class="filter-pill">Credit Line</button>
+                    <button onclick="filterProducts('Ad Fund')" class="filter-pill">Ad Fund</button>
+                    <button onclick="filterProducts('Verified BM')" class="filter-pill">Verified BM</button>
+                    <button onclick="filterProducts('Aged Account')" class="filter-pill">Aged</button>
+                    <button onclick="filterProducts('Premium')" class="filter-pill">Premium</button>
+                </div>
+            </div>
+            <div id="productGrid" class="product-grid"></div>
+        </div>
+    </section>
+
+    <!-- PRODUCT DETAIL MODAL -->
+    <div id="productDetailModal" class="modal-overlay" onclick="closeProductDetail(event)">
+        <div style="position:relative; max-width:550px; width:92%;">
+            <button class="modal-close-btn" onclick="document.getElementById('productDetailModal').classList.remove('active')">×</button>
+            <div class="modal-box" id="productDetailContent" onclick="event.stopPropagation()" style="margin:0 auto;"></div>
+        </div>
+    </div>
+
+    <!-- CART -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div style="padding:16px;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;"><h3>🛒 Cart</h3><button onclick="toggleCart()" style="background:none;border:none;font-size:20px;cursor:pointer;">×</button></div>
+        <div id="cartItems" style="flex:1;overflow-y:auto;padding:16px;"></div>
+        <div style="padding:16px;border-top:1px solid #e2e8f0;background:#f8fafc;"><div style="display:flex;justify-content:space-between;margin-bottom:12px;font-weight:700;"><span>Total:</span><span style="color:var(--primary);" id="cartTotal">$0.00</span></div><button class="btn btn-success" style="width:100%;justify-content:center;padding:12px;" onclick="checkout()">🔒 Checkout</button></div>
+    </div>
+
+    <!-- CHECKOUT -->
+    <div id="checkoutModal" class="modal-overlay"><div class="modal-box"><div style="display:flex;justify-content:space-between;margin-bottom:15px;"><h3>💳 Checkout</h3><button onclick="closeCheckout()" style="background:none;border:none;font-size:20px;cursor:pointer;">×</button></div><div id="checkoutContent"></div></div></div>
+
+    <!-- SUCCESS -->
+    <div id="successModal" class="modal-overlay"><div class="modal-box" style="text-align:center;"><i class="fas fa-clock" style="font-size:3rem;color:#F59E0B;"></i><h3>Order Submitted!</h3><p style="color:#64748b;">Pending verification</p><button class="btn btn-primary" onclick="document.getElementById('successModal').classList.remove('active')" style="width:100%;justify-content:center;margin-top:12px;">OK</button></div></div>
+
+    <!-- LOGIN -->
+    <div id="loginModal" class="modal-overlay"><div class="modal-box" style="max-width:380px;"><div style="display:flex;justify-content:space-between;margin-bottom:15px;"><h3>Account</h3><button onclick="closeLoginModal()" style="background:none;border:none;font-size:20px;cursor:pointer;">×</button></div><div style="display:flex;background:#f1f5f9;border-radius:8px;padding:3px;margin-bottom:15px;"><button onclick="switchAuthTab('login')" id="loginTabBtn" style="flex:1;padding:10px;border:none;background:white;border-radius:6px;font-weight:600;cursor:pointer;font-size:13px;">Login</button><button onclick="switchAuthTab('signup')" id="signupTabBtn" style="flex:1;padding:10px;border:none;background:transparent;border-radius:6px;font-weight:600;cursor:pointer;color:#64748b;font-size:13px;">Sign Up</button></div><form id="loginForm" onsubmit="handleLogin(event)"><input type="email" required placeholder="Email" style="width:100%;padding:10px;border:2px solid #e2e8f0;border-radius:8px;margin-bottom:10px;font-size:13px;"><input type="password" required placeholder="Password" style="width:100%;padding:10px;border:2px solid #e2e8f0;border-radius:8px;margin-bottom:12px;font-size:13px;"><button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:12px;">Login</button></form><form id="signupForm" onsubmit="handleSignup(event)" style="display:none;"><input type="text" required placeholder="Full Name" style="width:100%;padding:10px;border:2px solid #e2e8f0;border-radius:8px;margin-bottom:10px;font-size:13px;"><input type="email" required placeholder="Email" style="width:100%;padding:10px;border:2px solid #e2e8f0;border-radius:8px;margin-bottom:10px;font-size:13px;"><input type="password" required placeholder="Password (min 6)" minlength="6" style="width:100%;padding:10px;border:2px solid #e2e8f0;border-radius:8px;margin-bottom:12px;font-size:13px;"><button type="submit" class="btn btn-success" style="width:100%;justify-content:center;padding:12px;">Create Account</button></form></div></div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboardModal" class="modal-overlay"><div class="modal-box" style="max-width:850px;"><div style="display:flex;justify-content:space-between;margin-bottom:15px;"><h3>📊 My Dashboard</h3><button onclick="closeDashboard()" style="background:none;border:none;font-size:20px;cursor:pointer;">×</button></div><div class="dash-grid"><div class="dash-card"><div class="dash-number" id="dashOrders" style="color:var(--primary);">0</div><div class="dash-label">Orders</div></div><div class="dash-card"><div class="dash-number" id="dashConfirmed" style="color:var(--success);">0</div><div class="dash-label">Confirmed</div></div><div class="dash-card"><div class="dash-number" id="dashPending" style="color:var(--warning);">0</div><div class="dash-label">Pending</div></div><div class="dash-card"><div class="dash-number" style="color:var(--premium);" id="dashDownloads">0</div><div class="dash-label">Downloads</div></div></div><div class="table-wrap"><table><thead><tr><th>Order ID</th><th>Products</th><th>Amount</th><th>Date</th><th>Status</th><th>Action</th></tr></thead><tbody id="dashOrdersTable"></tbody></table></div></div></div>
+
+    <!-- DOWNLOAD -->
+    <div id="downloadModal" class="modal-overlay"><div class="modal-box" style="max-width:500px;"><div style="display:flex;justify-content:space-between;margin-bottom:12px;"><h3>📥 Download</h3><button onclick="document.getElementById('downloadModal').classList.remove('active')" style="background:none;border:none;font-size:20px;cursor:pointer;">×</button></div><div id="downloadContent"></div></div></div>
+
+    <!-- CHAT -->
+    <div class="chat-widget">
+        <a href="https://t.me/sigmabot5" class="chat-btn chat-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://t.me/sigmabot5" class="chat-btn chat-tg" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="contact" class="site-footer">
+        <div class="footer-grid">
+            <div><h4>Facebook agency ad Account</h4><p>#1 Premium Marketplace for Facebook Accounts.</p></div>
+            <div><h4>Links</h4><ul><li><a href="#" onclick="scrollToTop()">Home</a></li><li><a href="#products">Products</a></li></ul></div>
+            <div><h4>Contact</h4><p>📱 @sigmabot5<br>💬 </p></div>
+            <div><h4>Payment</h4><p>💵 USDT | ₿ BTC | 💠 ETH | 🚀 LTC</p></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; copy rigth by ADS FATHER 2024.</p></div>
+    </footer>
+
+    <script>
+        var CRYPTO={USDT BSC:"0x59760DFC935d0212502654A1171bb41A16cC02Ee",BTC:"bc1pp8r4av67q5qys7nlnr2nzmuv28qz2ruwt4acx2v8unk2hgkzdnnsj7d2hg",LTC:"ltc1qhfrn9yvtj6w7rtm30ez0ej8z5cxy53e9esqwl0",ETH:"0x59760DFC935d0212502654A1171bb41A16cC02Ee"};
+
+        // ⚡ PRODUCTS - SUDHU NICHE EDIT KORBEN ⚡
+        // image: "filename.jpg" - public_html folder e rakben
+        var products=[
+             {id:1,name:"BM 2500 Full Verified",regPrice:11300,offerPrice:6700,desc:"Fully verified Business Manager also Usa Ducoment, If you face any issu 30 Day 100% Replacement Warranty, Account Full Verified and 24/7 live support..",type:"Verified BM",stock:17,rating:5.0,buyers:127,badge:"Limited",image:"photo_2026-05-22_12-37-09.jpg",delivery:"BM: 987654321\nAdmin: admin@bm.com\nPass: BmPass@123"},
+            {id:2,name:"Scan Credit Line $25000 Limit Daily",regPrice:1821.99,offerPrice:1378.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with balance $25000 Limit Account Full Verified and 24/7 live support.",type:"Credit Line",stock:25,rating:4.8,buyers:1234,badge:"Best Seller",image:"10-03.jpg",delivery:"Email: user123@gmail.com\nPassword: Pass@123\nCredit: $250\nStatus: Verified"},
+            {id:3,name:"Facebook Credit Line $5000 Limit",regPrice:527.99,offerPrice:421.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with balance $5000 Limit Account Full Verified and 24/7 live support.",type:"Credit Line",stock:15,rating:4.9,buyers:892,badge:"Hot Deal 🔥",image:"502.jpg",delivery:"Email: pro456@gmail.com\nPassword: Pass@456\nCredit: $5000"},
+            {id:4,name:"Facebook AdFund $891",regPrice:149.99,offerPrice:79.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with $891 balance.",type:"Ad Fund",stock:10,rating:4.7,buyers:567,badge:"Premium",image:"36.jpg",delivery:"Account: 100234567\nBalance: $891\nToken: EAAxxx"},
+            {id:5,name:"BM 2500 Full Verified",regPrice:13200,offerPrice:8666,desc:"Fully verified Business Manager also Usa Ducoment, If you face any issu 30 Day 100% Replacement Warranty, Account Full Verified and 24/7 live support..",type:"Verified BM",stock:8,rating:5.0,buyers:345,badge:"Limited",image:"bm2500.jpg",delivery:"BM: 987654321\nAdmin: admin@bm.com\nPass: BmPass@123"},
+             {id:6,name:"BM 2500 No Verified",regPrice:11200,offerPrice:6100,desc:"Claim Guarante and 24/7 live support..",type:"Verified BM",stock:5,rating:5.0,buyers:345,badge:"Limited",image:"31-27.jpg",delivery:"BM: 987654321\nAdmin: admin@bm.com\nPass: BmPass@123"},
+             {id:7,name:"BM 2500 Full Verified",regPrice:11300,offerPrice:6200,desc:"Fully verified Business Manager also Usa Ducoment, If you face any issu 30 Day 100% Replacement Warranty, Account Full Verified and 24/7 live support..",type:"Verified BM",stock:17,rating:5.0,buyers:127,badge:"Limited",image:"7-31-36.jpg",delivery:"BM: 987654321\nAdmin: admin@bm.com\nPass: BmPass@123"},
+            {id:8,name:"Pro AdFund $999",regPrice:349.99,offerPrice:111.99,desc:"Full Spending Guarantee | 100% Replacement Warranty balance $999 Limit Account Full Verified and 24/7 live support.",type:"Ad Fund",stock:11,rating:5.0,buyers:89,badge:"Pro",image:"999.jpg",delivery:"Account: PRO987654\nBalance: $2500"},
+            {id:9,name:"Facebook Credit Line $2500 Limit",regPrice:499.99,offerPrice:349.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with balance $2500, daily limit $2500  Account Full Verified and 24/7 live support.",type:"Premium",stock:2,rating:5.0,buyers:56,badge:"Enterprise",image:"14-10-03 (2).jpg",delivery:"BM: ENT123456\nAccounts: 10\nCredit: $5000"},
+            {id:10,name:"Facebook AdFund $999",regPrice:149.99,offerPrice:89.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with $999 balance.",type:"Ad Fund",stock:10,rating:4.7,buyers:567,badge:"Premium",image:"Screenshot_19.png",delivery:"Account: 100234567\nBalance: $999\nToken: EAAxxx"},
+            {id:11,name:"Facebook AdFund $711",regPrice:149.99,offerPrice:75.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with $711 balance.",type:"Ad Fund",stock:10,rating:4.7,buyers:567,badge:"Premium",image:"Screenshot_18.png",delivery:"Account: 100234567\nBalance: $711\nToken: EAAxxx"},
+            {id:12,name:"Facebook AdFund $629",regPrice:149.99,offerPrice:65.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with $629 balance.",type:"Ad Fund",stock:10,rating:4.7,buyers:567,badge:"Premium",image:"Screenshot_17.png",delivery:"Account: 100234567\nBalance: $629\nToken: EAAxxx"},
+             {id:13,name:"Amazon.co.uk $500 eGift Card – Email Delivery in Minutes | Animated Design | Redeemable on Millions of Items",regPrice:499.99,offerPrice:349.99,desc:"Amazon.co.uk $500 eGift Card – Email Delivery in Minutes | Animated Design | Redeemable on Millions of Items and 24/7 live support.",type:"Premium",stock:2,rating:5.0,buyers:56,badge:"Enterprise",image:"sm.png",delivery:"BM: ENT123456\nAccounts: 10\nCredit: $5000"},
+             {id:14,name:"Facebook AdFund $976 Accounts",regPrice:149.99,offerPrice:110.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with $976 balance.",type:"Ad Fund",stock:10,rating:4.7,buyers:567,badge:"Premium",image:"Screens.png",delivery:"Account: 100234567\nBalance: $891\nToken: EAAxxx"},
+              {id:15,name:"Facebook AdFund $699 Accounts",regPrice:149.99,offerPrice:74.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with $699 balance.",type:"Ad Fund",stock:10,rating:4.7,buyers:567,badge:"Premium",image:"Screenshot_29.png",delivery:"Account: 100234567\nBalance: $891\nToken: EAAxxx"},
+               {id:16,name:"Facebook AdFund $731 Accounts",regPrice:149.99,offerPrice:79.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with $731 balance.",type:"Ad Fund",stock:10,rating:4.7,buyers:567,badge:"Premium",image:"Screenshot_28.png",delivery:"Account: 100234567\nBalance: $891\nToken: EAAxxx"},
+                {id:17,name:"Facebook AdFund $897 Accounts",regPrice:149.99,offerPrice:89.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with $897 balance.",type:"Ad Fund",stock:10,rating:4.7,buyers:567,badge:"Premium",image:"Screenshot_27.png",delivery:"Account: 100234567\nBalance: $891\nToken: EAAxxx"},
+        ];
+
+        var currentUser=null,users=[],cart=[],orders=[],currentFilter='all',selectedCrypto='';
+
+        function init(){var u=localStorage.getItem('fb_users');if(u)try{users=JSON.parse(u)}catch(e){users=[]}var c=localStorage.getItem('fb_cart');if(c)try{cart=JSON.parse(c)}catch(e){cart=[]}var o=localStorage.getItem('fb_orders');if(o)try{orders=JSON.parse(o)}catch(e){orders=[]}var cu=localStorage.getItem('fb_currentUser');if(cu)try{currentUser=JSON.parse(cu)}catch(e){currentUser=null}updateUserUI()}
+        function save(){localStorage.setItem('fb_users',JSON.stringify(users));localStorage.setItem('fb_cart',JSON.stringify(cart));localStorage.setItem('fb_orders',JSON.stringify(orders));if(currentUser)localStorage.setItem('fb_currentUser',JSON.stringify(currentUser));else localStorage.removeItem('fb_currentUser')}
+        function getPrice(p){return(p.offerPrice&&p.offerPrice<p.regPrice)?p.offerPrice:p.regPrice}
+        function hasOffer(p){return p.offerPrice&&p.offerPrice<p.regPrice}
+        function findProduct(id){for(var i=0;i<products.length;i++){if(products[i].id===id)return products[i]}return null}
+
+        function renderProducts(filterType){
+            filterType=filterType||'all';
+            var list=filterType==='all'?products:products.filter(function(p){return p.type===filterType});
+            document.getElementById('productCount').textContent='('+list.length+')';
+            var grid=document.getElementById('productGrid');
+            if(list.length===0){grid.innerHTML='<div style="text-align:center;padding:50px;color:#64748b;grid-column:1/-1;">No products</div>';return}
+            var html='';
+            for(var i=0;i<list.length;i++){
+                var p=list[i],price=getPrice(p),offer=hasOffer(p);
+                html+='<div class="product-card" onclick="showDetail('+p.id+')">';
+                // IMAGE SECTION - FIXED
+                html+='<div class="product-image-wrap">';
+                if(p.image&&p.image!==''){
+                    html+='<img src="'+p.image+'" alt="'+p.name+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';">';
+                    html+='<div class="product-img-placeholder" style="display:none;"><i class="fab fa-facebook"></i></div>';
+                }else{
+                    html+='<div class="product-img-placeholder"><i class="fab fa-facebook"></i></div>';
+                }
+                if(p.badge)html+='<span class="product-badge">'+p.badge+'</span>';
+                html+='<span class="product-category">'+p.type+'</span>';
+                html+='<span class="product-rating">★ '+p.rating+'</span>';
+                html+='</div>';
+                // INFO SECTION
+                html+='<div class="product-info">';
+                html+='<h3 class="product-name">'+p.name+'</h3>';
+                html+='<p class="product-desc">'+p.desc+'</p>';
+                html+='<div class="product-price-wrap"><span class="product-price">$'+price.toFixed(2)+'</span>';
+                if(offer)html+='<span class="original-price">$'+p.regPrice.toFixed(2)+'</span><span class="discount-badge">-'+Math.round((1-p.offerPrice/p.regPrice)*100)+'%</span>';
+                html+='</div>';
+                html+='<div class="product-actions"><button class="add-cart-btn" onclick="event.stopPropagation();addToCart('+p.id+')" '+(p.stock===0?'disabled':'')+'>🛒 Cart</button><button class="buy-btn" onclick="event.stopPropagation();buyNow('+p.id+')" '+(p.stock===0?'disabled':'')+'>⚡ Buy</button></div>';
+                html+='<p class="stock-info"><span class="'+(p.stock>0?'in-stock':'out-stock')+'">'+(p.stock>0?'✅ '+p.stock:'❌ Out')+'</span><span>👥 '+p.buyers+'</span></p>';
+                html+='</div></div>';
+            }
+            grid.innerHTML=html;
+        }
+
+        function searchProducts(){
+            var q=document.getElementById('searchInput').value.toLowerCase().trim();
+            if(!q){renderProducts(currentFilter);return}
+            var list=products.filter(function(p){return p.name.toLowerCase().indexOf(q)>-1||p.type.toLowerCase().indexOf(q)>-1||p.desc.toLowerCase().indexOf(q)>-1});
+            document.getElementById('productCount').textContent='('+list.length+' results)';
+            var grid=document.getElementById('productGrid');
+            if(list.length===0){grid.innerHTML='<div style="text-align:center;padding:50px;color:#64748b;grid-column:1/-1;">No products found</div>';return}
+            var html='';
+            for(var i=0;i<list.length;i++){
+                var p=list[i],price=getPrice(p),offer=hasOffer(p);
+                html+='<div class="search-product-card" onclick="showDetail('+p.id+')">';
+                html+='<div class="product-image-wrap" style="height:160px;">';
+                if(p.image&&p.image!=='')html+='<img src="'+p.image+'" alt="'+p.name+'">';
+                else html+='<div class="product-img-placeholder"><i class="fab fa-facebook"></i></div>';
+                if(p.badge)html+='<span class="product-badge">'+p.badge+'</span>';
+                html+='<span class="product-category">'+p.type+'</span><span class="product-rating">★ '+p.rating+'</span></div>';
+                html+='<div class="product-info"><h3 class="product-name">'+p.name+'</h3><p class="product-desc">'+p.desc+'</p><div class="product-price-wrap"><span class="product-price">$'+price.toFixed(2)+'</span>';
+                if(offer)html+='<span class="original-price">$'+p.regPrice.toFixed(2)+'</span><span class="discount-badge">-'+Math.round((1-p.offerPrice/p.regPrice)*100)+'%</span></div>';
+                html+='<div class="product-actions"><button class="add-cart-btn" onclick="event.stopPropagation();addToCart('+p.id+')" '+(p.stock===0?'disabled':'')+'>🛒 Cart</button><button class="buy-btn" onclick="event.stopPropagation();buyNow('+p.id+')" '+(p.stock===0?'disabled':'')+'>⚡ Buy</button></div></div></div>';
+            }
+            grid.innerHTML=html;
+        }
+
+        // ⚡ FIXED: showDetail with proper image
+        function showDetail(id){
+            var p=findProduct(id);if(!p)return;
+            var price=getPrice(p),offer=hasOffer(p);
+            var html='<div>';
+            // Detail image
+            html+='<div class="detail-image-wrap">';
+            if(p.image&&p.image!=='')html+='<img src="'+p.image+'" alt="'+p.name+'">';
+            else html+='<div class="product-img-placeholder"><i class="fab fa-facebook"></i></div>';
+            html+='</div>';
+            // Info
+            html+='<span style="background:var(--primary);color:white;padding:5px 12px;border-radius:20px;font-size:11px;">'+p.type+'</span> ';
+            if(p.badge)html+='<span style="background:#F59E0B;color:black;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:700;">'+p.badge+'</span>';
+            html+='<h2 style="font-size:1.4rem;font-weight:800;margin:12px 0 6px;">'+p.name+'</h2>';
+            html+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><span style="font-size:1.6rem;font-weight:800;color:var(--primary);">$'+price.toFixed(2)+'</span>';
+            if(offer)html+='<span class="original-price" style="font-size:14px;">$'+p.regPrice.toFixed(2)+'</span><span class="discount-badge" style="font-size:12px;">-'+Math.round((1-p.offerPrice/p.regPrice)*100)+'% OFF</span></div>';
+            html+='<p style="color:var(--gold);font-size:13px;"><i class="fas fa-star"></i> '+p.rating+'/5 | 👥 '+p.buyers+' buyers</p>';
+            html+='<p style="color:#64748b;margin:8px 0;font-size:13px;">'+p.desc+'</p>';
+            html+='<p style="color:'+(p.stock>0?'var(--success)':'var(--danger)')+';font-weight:600;font-size:14px;">'+(p.stock>0?'✅ '+p.stock+' units in stock':'❌ Out of stock')+'</p>';
+            html+='<div style="display:flex;gap:8px;margin-top:16px;"><button onclick="addToCart('+p.id+');document.getElementById(\'productDetailModal\').classList.remove(\'active\')" class="add-cart-btn" style="flex:1;padding:13px;font-size:14px;" '+(p.stock===0?'disabled':'')+'>🛒 Add to Cart</button><button onclick="buyNow('+p.id+');document.getElementById(\'productDetailModal\').classList.remove(\'active\')" class="buy-btn" style="flex:1;padding:13px;font-size:14px;" '+(p.stock===0?'disabled':'')+'>⚡ Buy Now</button></div>';
+            html+='</div>';
+            document.getElementById('productDetailContent').innerHTML=html;
+            document.getElementById('productDetailModal').classList.add('active');
+        }
+
+        function closeProductDetail(e){if(e.target===document.getElementById('productDetailModal'))document.getElementById('productDetailModal').classList.remove('active')}
+        function filterProducts(type){currentFilter=type;document.querySelectorAll('.filter-pill').forEach(function(b){b.classList.remove('active')});event.target.classList.add('active');renderProducts(type)}
+        function addToCart(id){if(!currentUser){showLoginModal();notify('Please login!','error');return}var p=findProduct(id);if(!p||p.stock===0){notify('Out of stock!','error');return}var price=getPrice(p),existing=null;for(var i=0;i<cart.length;i++){if(cart[i].productId===id){existing=cart[i];break}}if(existing){if(existing.quantity<p.stock){existing.quantity++;p.stock--}else{notify('No more stock!','error');return}}else{cart.push({productId:id,quantity:1,price:price});p.stock--}save();updateCart();renderProducts(currentFilter);notify('Added!','success')}
+        function buyNow(id){if(!currentUser){showLoginModal();notify('Please login!','error');return}var p=findProduct(id);if(!p||p.stock===0){notify('Out of stock!','error');return}for(var i=0;i<cart.length;i++){var prod=findProduct(cart[i].productId);if(prod)prod.stock+=cart[i].quantity}cart=[{productId:id,quantity:1,price:getPrice(p)}];p.stock--;save();updateCart();checkout()}
+        function updateCart(){var t=0,tp=0;for(var i=0;i<cart.length;i++){t+=cart[i].quantity;tp+=cart[i].price*cart[i].quantity}document.getElementById('cartCount').textContent=t;document.getElementById('cartTotal').textContent='$'+tp.toFixed(2);var html='';if(cart.length===0){html='<p style="text-align:center;color:#94a3b8;padding:30px 0;">Cart empty</p>'}else{for(var j=0;j<cart.length;j++){var item=cart[j],p=findProduct(item.productId);html+='<div style="display:flex;justify-content:space-between;padding:10px;background:#f8fafc;border-radius:10px;margin-bottom:8px;"><div><p style="font-weight:700;font-size:13px;">'+(p?p.name:'Unknown')+'</p><p style="font-size:11px;color:#64748b;">$'+item.price+' x '+item.quantity+'</p></div><div style="text-align:right;"><p style="font-weight:700;">$'+(item.price*item.quantity).toFixed(2)+'</p><button onclick="removeCart('+j+')" style="background:none;border:none;color:var(--danger);cursor:pointer;font-size:12px;">🗑</button></div></div>'}}document.getElementById('cartItems').innerHTML=html}
+        function removeCart(idx){var item=cart[idx],p=findProduct(item.productId);if(p)p.stock+=item.quantity;cart.splice(idx,1);save();updateCart();renderProducts(currentFilter)}
+        function toggleCart(){document.getElementById('cartSidebar').classList.toggle('open');document.getElementById('cartOverlay').classList.toggle('active')}
+        function checkout(){if(!currentUser){showLoginModal();return}if(cart.length===0){notify('Cart empty!','error');return}var total=0;for(var i=0;i<cart.length;i++)total+=cart[i].price*cart[i].quantity;var html='<input type="text" id="cName" required placeholder="Full Name *" style="width:100%;padding:10px;border:2px solid #e2e8f0;border-radius:8px;margin-bottom:8px;font-size:13px;"><input type="email" id="cEmail" required placeholder="Email *" style="width:100%;padding:10px;border:2px solid #e2e8f0;border-radius:8px;margin-bottom:8px;font-size:13px;"><input type="text" id="cContact" placeholder="Telegram/WhatsApp" style="width:100%;padding:10px;border:2px solid #e2e8f0;border-radius:8px;margin-bottom:12px;font-size:13px;"><div style="background:#f8fafc;padding:12px;border-radius:10px;margin-bottom:12px;"><p style="font-weight:700;margin-bottom:8px;">Order Summary</p>';for(var j=0;j<cart.length;j++){var p=findProduct(cart[j].productId);html+='<div style="display:flex;justify-content:space-between;font-size:12px;"><span>'+(p?p.name:'Unknown')+' x'+cart[j].quantity+'</span><span>$'+(cart[j].price*cart[j].quantity).toFixed(2)+'</span></div>'}html+='<div style="border-top:1px solid #e2e8f0;padding-top:8px;margin-top:8px;display:flex;justify-content:space-between;font-weight:700;">Total:<span style="color:var(--primary);">$'+total.toFixed(2)+'</span></div></div><p style="font-weight:700;margin-bottom:8px;">Crypto Payment</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;"><button onclick="selectCrypto(\'USDT\')" style="border:2px solid #e2e8f0;border-radius:10px;padding:12px;text-align:center;background:white;cursor:pointer;font-weight:600;font-size:12px;">💵 USDT</button><button onclick="selectCrypto(\'BTC\')" style="border:2px solid #e2e8f0;border-radius:10px;padding:12px;text-align:center;background:white;cursor:pointer;font-weight:600;font-size:12px;">₿ BTC</button><button onclick="selectCrypto(\'ETH\')" style="border:2px solid #e2e8f0;border-radius:10px;padding:12px;text-align:center;background:white;cursor:pointer;font-weight:600;font-size:12px;">💠 ETH</button><button onclick="selectCrypto(\'LTC\')" style="border:2px solid #e2e8f0;border-radius:10px;padding:12px;text-align:center;background:white;cursor:pointer;font-weight:600;font-size:12px;">🚀 LTC</button></div><div id="cryptoInfo" style="background:linear-gradient(135deg,var(--primary),var(--premium));color:white;padding:12px;border-radius:10px;margin-bottom:12px;display:none;"></div><input type="text" id="cTrxId" required placeholder="Transaction ID (TXID) *" style="width:100%;padding:10px;border:2px solid #e2e8f0;border-radius:8px;margin-bottom:12px;font-size:13px;"><button onclick="submitOrder()" class="btn btn-success" style="width:100%;justify-content:center;padding:14px;font-size:14px;">🔒 Submit Order</button>';document.getElementById('checkoutContent').innerHTML=html;document.getElementById('checkoutModal').classList.add('active');toggleCart()}
+        function closeCheckout(){document.getElementById('checkoutModal').classList.remove('active')}
+        function selectCrypto(crypto){selectedCrypto=crypto;document.getElementById('cryptoInfo').style.display='block';document.getElementById('cryptoInfo').innerHTML='<p style="font-weight:700;">Send '+crypto+' to:</p><p style="background:rgba(255,255,255,0.15);padding:10px;border-radius:8px;font-size:11px;word-break:break-all;">'+CRYPTO[crypto]+'</p><button onclick="copyAddress()" style="color:#FCD34D;background:none;border:none;cursor:pointer;font-size:11px;">📋 Copy</button>'}
+        function copyAddress(){navigator.clipboard.writeText(CRYPTO[selectedCrypto]).then(function(){notify('Copied!','success')})}
+        function submitOrder(){var n=document.getElementById('cName').value.trim(),e=document.getElementById('cEmail').value.trim(),tx=document.getElementById('cTrxId').value.trim();if(!n||!e){notify('Fill name & email!','error');return}if(!selectedCrypto){notify('Select crypto!','error');return}if(!tx){notify('Enter TXID!','error');return}closeCheckout();var total=0;for(var i=0;i<cart.length;i++)total+=cart[i].price*cart[i].quantity;var order={id:'FB'+Date.now(),userId:currentUser.email,customerName:n,customerEmail:e,items:[],total:total,date:new Date().toISOString(),status:'pending',crypto:selectedCrypto,txId:tx};for(var j=0;j<cart.length;j++){order.items.push({productId:cart[j].productId,quantity:cart[j].quantity,price:cart[j].price});var p=findProduct(cart[j].productId);if(p)p.buyers+=cart[j].quantity}orders.push(order);cart=[];save();updateCart();renderProducts(currentFilter);document.getElementById('successModal').classList.add('active')}
+        function showLoginModal(){document.getElementById('loginModal').classList.add('active')}
+        function closeLoginModal(){document.getElementById('loginModal').classList.remove('active')}
+        function switchAuthTab(tab){document.getElementById('loginTabBtn').style.background=tab==='login'?'white':'transparent';document.getElementById('signupTabBtn').style.background=tab==='signup'?'white':'transparent';document.getElementById('loginForm').style.display=tab==='login'?'block':'none';document.getElementById('signupForm').style.display=tab==='signup'?'block':'none'}
+        function handleLogin(e){e.preventDefault();var email=e.target.querySelector('[type="email"]').value,pass=e.target.querySelector('[type="password"]').value,user=null;for(var i=0;i<users.length;i++){if(users[i].email===email&&users[i].password===pass){user=users[i];break}}if(user){currentUser=user;save();updateUserUI();closeLoginModal();notify('Welcome!','success')}else notify('Invalid!','error')}
+        function handleSignup(e){e.preventDefault();var n=e.target.querySelector('[type="text"]').value,em=e.target.querySelector('[type="email"]').value,pa=e.target.querySelector('[type="password"]').value;for(var i=0;i<users.length;i++){if(users[i].email===em){notify('Email exists!','error');return}}var user={name:n,email:em,password:pa,joinDate:new Date().toISOString()};users.push(user);currentUser=user;save();updateUserUI();closeLoginModal();notify('Created!','success')}
+        function logoutUser(){currentUser=null;save();updateUserUI();notify('Logged out!','success')}
+        function updateUserUI(){if(currentUser){document.querySelector('.header-actions .btn-primary').style.display='none';document.getElementById('loggedInUser').style.display='inline';document.getElementById('loggedInUser').textContent='👤 '+currentUser.name;document.getElementById('logoutBtn').style.display='inline-flex'}else{document.querySelector('.header-actions .btn-primary').style.display='inline-flex';document.getElementById('loggedInUser').style.display='none';document.getElementById('logoutBtn').style.display='none'}}
+        function showDashboard(){if(!currentUser){showLoginModal();return}var uo=orders.filter(function(o){return o.userId===currentUser.email});document.getElementById('dashOrders').textContent=uo.length;document.getElementById('dashConfirmed').textContent=uo.filter(function(o){return o.status==='confirmed'}).length;document.getElementById('dashPending').textContent=uo.filter(function(o){return o.status==='pending'}).length;document.getElementById('dashDownloads').textContent=uo.filter(function(o){return o.status==='confirmed'}).length;var html='';if(uo.length===0){html='<tr><td colspan="6" style="text-align:center;padding:25px;color:#64748b;">No orders</td></tr>'}else{for(var i=uo.length-1;i>=0;i--){var o=uo[i],pnames=[];for(var j=0;j<o.items.length;j++){var p=findProduct(o.items[j].productId);pnames.push((p?p.name:'Unknown')+' x'+o.items[j].quantity)}html+='<tr><td>'+o.id+'</td><td>'+pnames.join(', ')+'</td><td style="font-weight:700;">$'+o.total.toFixed(2)+'</td><td>'+new Date(o.date).toLocaleDateString()+'</td><td><span class="'+(o.status==='confirmed'?'status-confirmed':'status-pending')+'">'+o.status+'</span></td><td>'+(o.status==='confirmed'?'<button onclick="downloadOrder(\''+o.id+'\')" class="btn btn-success" style="font-size:10px;padding:5px 8px;">📥 Download</button>':'<span style="color:#94a3b8;">Waiting</span>')+'</td></tr>'}}document.getElementById('dashOrdersTable').innerHTML=html;document.getElementById('dashboardModal').classList.add('active')}
+        function closeDashboard(){document.getElementById('dashboardModal').classList.remove('active')}
+        function downloadOrder(oid){var o=null;for(var i=0;i<orders.length;i++){if(orders[i].id===oid){o=orders[i];break}}if(o&&o.status==='confirmed'){var html='';for(var j=0;j<o.items.length;j++){var p=findProduct(o.items[j].productId);html+='<div style="background:#f8fafc;padding:12px;border-radius:10px;margin-bottom:10px;"><p style="font-weight:700;margin-bottom:5px;">'+(p?p.name:'Unknown')+' x'+o.items[j].quantity+'</p><div style="background:#1e293b;color:#10B981;padding:12px;border-radius:8px;font-family:monospace;font-size:12px;white-space:pre-wrap;">'+(p?p.delivery:'No data')+'</div><button onclick="copyDel(\''+(p?p.delivery.replace(/'/g,"\\'").replace(/\n/g,'\\n'):'')+'\')" style="color:var(--primary);background:none;border:none;cursor:pointer;font-size:11px;">📋 Copy</button></div>'}document.getElementById('downloadContent').innerHTML=html;document.getElementById('downloadModal').classList.add('active')}}
+        function copyDel(d){navigator.clipboard.writeText(d.replace(/\\n/g,'\n')).then(function(){notify('Copied!','success')})}
+        function toggleMobileMenu(){document.getElementById('mainNav').classList.toggle('open')}
+        function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
+        function notify(msg,type){var n=document.createElement('div');n.style.cssText='position:fixed;top:15px;right:15px;padding:12px 18px;border-radius:10px;color:white;z-index:9999;font-size:13px;font-weight:600;animation:slideUp 0.3s ease;';n.style.background=type==='success'?'#10B981':type==='error'?'#EF4444':'#1877F2';n.textContent=msg;document.body.appendChild(n);setTimeout(function(){n.remove()},3000)}
+
+        init();renderProducts();updateCart();
+    </script>
+</body>
+</html>
