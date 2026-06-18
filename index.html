@@ -1,446 +1,984 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebook Agency ad account - Premium Facebook Accounts</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #1317F2;
-            --primary-dark: #0C5DC7;
-            --success: #50B981;
-            --warning: #559E0B;
-            --danger: #DF4444;
-            --dark: #0f372a;
-            --light: #f8fafc;
-            --gold: #DE9D00;
-            --premium: #DC4400FF;
-        }
-
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif; background:#f1f5f9; color:#1e293b; line-height:1.6; }
-
-        @keyframes liveGradient { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
-        @keyframes livePulse { 0%{box-shadow:0 0 0 0 rgba(255,255,255,0.7)} 70%{box-shadow:0 0 0 15px rgba(255,255,255,0)} 100%{box-shadow:0 0 0 0 rgba(255,255,255,0)} }
-        @keyframes scrollText { 0%{transform:translateX(100%)} 100%{transform:translateX(-100%)} }
-        @keyframes glow { 0%,100%{box-shadow:0 0 20px rgba(24,119,242,0.3)} 50%{box-shadow:0 0 40px rgba(24,119,242,0.6)} }
-        @keyframes slideUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
-
-        .live-bar { background:linear-gradient(90deg,#FF6B6B,#FF8E53,#FF6B6B); background-size:200% 100%; animation:liveGradient 3s ease infinite; color:white; padding:6px 0; overflow:hidden; }
-        .live-bar-inner { max-width:1300px; margin:0 auto; padding:0 12px; display:flex; align-items:center; gap:8px; }
-        .live-dot { width:8px; height:8px; background:white; border-radius:50%; flex-shrink:0; animation:livePulse 1.5s infinite; }
-        .live-text { font-weight:700; font-size:11px; flex-shrink:0; }
-        .live-scroll-wrap { flex:1; overflow:hidden; }
-        .live-scroll { white-space:nowrap; animation:scrollText 25s linear infinite; font-size:10px; display:inline-block; }
-        .live-badge { background:rgba(255,255,255,0.25); padding:3px 10px; border-radius:20px; font-size:10px; font-weight:700; flex-shrink:0; }
-
-        .site-header { background:white; box-shadow:0 1px 3px rgba(0,0,0,0.05); position:sticky; top:0; z-index:1000; }
-        .header-inner { max-width:1300px; margin:0 auto; padding:10px 16px; display:flex; justify-content:space-between; align-items:center; }
-        .logo-wrap { display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--dark); }
-        .logo-icon { width:36px; height:36px; background:linear-gradient(135deg,var(--primary),var(--premium)); border-radius:10px; display:flex; align-items:center; justify-content:center; color:white; font-size:18px; flex-shrink:0; }
-        .logo-text { font-size:18px; font-weight:800; }
-        .logo-sub { font-size:9px; color:#64748b; display:block; line-height:1; font-weight:500; }
-
-        .main-nav ul { display:flex; list-style:none; gap:2px; }
-        .main-nav a { padding:8px 14px; border-radius:8px; color:#475569; font-weight:500; font-size:13px; text-decoration:none; transition:all 0.2s; cursor:pointer; }
-        .main-nav a:hover,.main-nav a.active { background:#eff6ff; color:var(--primary); }
-
-        .header-actions { display:flex; align-items:center; gap:8px; }
-        .btn { padding:8px 14px; border-radius:8px; font-weight:600; font-size:12px; cursor:pointer; border:none; display:inline-flex; align-items:center; gap:5px; transition:all 0.2s; text-decoration:none; white-space:nowrap; }
-        .btn-primary { background:var(--primary); color:white; } .btn-primary:hover { background:var(--primary-dark); }
-        .btn-outline { border:2px solid #e2e8f0; color:#475569; background:white; }
-        .btn-success { background:var(--success); color:white; }
-        .cart-btn { position:relative; cursor:pointer; padding:8px; color:#475569; }
-        .cart-count { position:absolute; top:0; right:0; background:var(--danger); color:white; width:17px; height:17px; border-radius:50%; font-size:10px; display:flex; align-items:center; justify-content:center; font-weight:700; }
-        .mobile-toggle { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:#475569; }
-
-        .hero-section { background:linear-gradient(135deg,#0f172a 0%,#1e293b 30%,#0f172a 60%,#1a1a2e 100%); color:white; padding:40px 0 50px; text-align:center; position:relative; overflow:hidden; }
-        .hero-content { position:relative; z-index:1; max-width:700px; margin:0 auto; padding:0 16px; }
-        .hero-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.1); padding:8px 18px; border-radius:50px; margin-bottom:15px; font-size:12px; }
-        .hero-title { font-size:2rem; font-weight:900; margin-bottom:8px; }
-        .hero-title span { background:linear-gradient(135deg,#60a5fa,#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-        .hero-subtitle { font-size:0.95rem; color:#94a3b8; margin-bottom:20px; }
-        .hero-buttons { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:25px; }
-        .hero-btn-primary { background:linear-gradient(135deg,var(--primary),var(--premium)); color:white; padding:12px 28px; border-radius:50px; font-weight:700; font-size:14px; text-decoration:none; display:inline-flex; align-items:center; gap:8px; animation:glow 2s infinite; }
-        .hero-btn-outline { border:2px solid rgba(255,255,255,0.3); color:white; padding:12px 28px; border-radius:50px; font-weight:700; font-size:14px; text-decoration:none; }
-        .hero-stats { display:flex; gap:30px; justify-content:center; flex-wrap:wrap; }
-        .hero-stat .stat-number { font-size:1.8rem; font-weight:900; background:linear-gradient(135deg,#60a5fa,#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-        .hero-stat .stat-label { font-size:10px; color:#94a3b8; text-transform:uppercase; }
-
-        .section-wrap { padding:30px 0; }
-        .container { max-width:1300px; margin:0 auto; padding:0 16px; }
-        .section-title { font-size:22px; font-weight:800; }
-        .filter-bar { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:20px; background:white; padding:10px 14px; border-radius:12px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
-        .search-box { position:relative; flex:1; min-width:160px; }
-        .search-box input { width:100%; padding:10px 12px 10px 35px; border:2px solid #e2e8f0; border-radius:10px; font-size:13px; outline:none; background:#f8fafc; }
-        .search-box input:focus { border-color:var(--primary); background:white; }
-        .search-box i { position:absolute; left:12px; top:50%; transform:translateY(-50%); color:#94a3b8; font-size:13px; }
-        .filter-pills { display:flex; gap:5px; flex-wrap:wrap; }
-        .filter-pill { padding:6px 12px; border-radius:20px; font-weight:600; cursor:pointer; border:none; font-size:11px; white-space:nowrap; background:#f1f5f9; color:#64748b; }
-        .filter-pill.active { background:var(--primary); color:white; }
-
-        /* ⚡ FIXED: Product Grid with proper image handling */
-        .product-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:25px; row-gap:35px; }
-        @media (max-width:1024px) { .product-grid { grid-template-columns:repeat(2, 1fr); gap:20px; row-gap:30px; } }
-        @media (max-width:640px) { .product-grid { grid-template-columns:1fr; gap:16px; row-gap:25px; } }
-
-        .product-card { background:white; border-radius:16px; overflow:hidden; cursor:pointer; transition:all 0.3s; border:1px solid #e2e8f0; display:flex; flex-direction:column; }
-        .product-card:hover { transform:translateY(-5px); box-shadow:0 15px 30px rgba(0,0,0,0.1); border-color:var(--primary); }
-
-        /* ⚡ FIXED: Image container */
-        .product-image-wrap { width:100%; height:200px; background:linear-gradient(135deg,#eff6ff,#f5f3ff); position:relative; overflow:hidden; flex-shrink:0; }
-        .product-image-wrap img { width:100%; height:100%; object-fit:cover; display:block; }
-        .product-img-placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:4rem; color:#93c5fd; opacity:0.3; }
-
-        .product-badge { position:absolute; top:10px; right:10px; background:linear-gradient(135deg,#F59E0B,#F97316); color:white; padding:5px 12px; border-radius:20px; font-size:10px; font-weight:700; z-index:2; }
-        .product-category { position:absolute; top:10px; left:10px; background:rgba(0,0,0,0.7); color:white; padding:5px 12px; border-radius:20px; font-size:10px; font-weight:600; z-index:2; }
-        .product-rating { position:absolute; bottom:10px; left:10px; background:rgba(0,0,0,0.5); color:var(--gold); padding:5px 12px; border-radius:20px; font-size:10px; font-weight:600; z-index:2; }
-        .product-info { padding:16px; flex:1; display:flex; flex-direction:column; }
-        .product-name { font-size:15px; font-weight:700; margin-bottom:4px; }
-        .product-desc { color:#64748b; font-size:11px; margin-bottom:10px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-        .product-price-wrap { display:flex; align-items:center; gap:6px; margin-bottom:10px; flex-wrap:wrap; }
-        .product-price { font-size:19px; font-weight:800; color:var(--primary); }
-        .original-price { text-decoration:line-through; color:#94a3b8; font-size:12px; }
-        .discount-badge { background:var(--danger); color:white; padding:2px 8px; border-radius:20px; font-size:10px; font-weight:700; }
-        .product-actions { display:flex; gap:6px; margin-top:auto; }
-        .add-cart-btn,.buy-btn { flex:1; padding:9px 6px; border-radius:8px; text-align:center; font-size:11px; font-weight:700; cursor:pointer; border:none; }
-        .add-cart-btn { background:var(--primary); color:white; }
-        .buy-btn { background:var(--success); color:white; }
-        .stock-info { font-size:10px; margin-top:8px; display:flex; justify-content:space-between; flex-wrap:wrap; }
-        .in-stock { color:var(--success); } .out-stock { color:var(--danger); }
-
-        .search-product-card { background:white; border-radius:14px; overflow:hidden; cursor:pointer; transition:all 0.3s; border:1px solid #e2e8f0; display:flex; flex-direction:column; }
-        .search-product-card:hover { transform:translateY(-3px); box-shadow:0 10px 25px rgba(0,0,0,0.1); }
-
-        /* ⚡ FIXED: Modal image */
-        .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.7); backdrop-filter:blur(5px); z-index:2000; display:none; align-items:center; justify-content:center; padding:16px; }
-        .modal-overlay.active { display:flex; }
-        .modal-box { background:white; border-radius:20px; padding:24px; max-width:600px; width:100%; max-height:85vh; overflow-y:auto; animation:slideUp 0.3s ease; }
-        .modal-close-btn { position:absolute; top:12px; right:12px; background:white; width:32px; height:32px; border-radius:50%; border:none; font-size:16px; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.1); z-index:5; }
-
-        .detail-image-wrap { width:100%; height:250px; background:linear-gradient(135deg,#eff6ff,#f5f3ff); border-radius:14px; overflow:hidden; margin-bottom:16px; display:flex; align-items:center; justify-content:center; }
-        .detail-image-wrap img { width:100%; height:100%; object-fit:cover; display:block; }
-
-        .cart-sidebar { position:fixed; right:0; top:0; height:100%; width:100%; max-width:400px; background:white; z-index:1500; transform:translateX(100%); transition:transform 0.3s; display:flex; flex-direction:column; box-shadow:-5px 0 30px rgba(0,0,0,0.15); }
-        .cart-sidebar.open { transform:translateX(0); }
-        .cart-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:1499; display:none; }
-        .cart-overlay.active { display:block; }
-
-        .dash-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:10px; margin-bottom:20px; }
-        @media (min-width:640px) { .dash-grid { grid-template-columns:repeat(4, 1fr); } }
-        .dash-card { background:white; padding:16px; border-radius:12px; text-align:center; }
-        .dash-card .dash-number { font-size:22px; font-weight:800; }
-        .dash-card .dash-label { font-size:10px; color:#64748b; text-transform:uppercase; }
-
-        .table-wrap { overflow-x:auto; }
-        table { width:100%; border-collapse:collapse; font-size:11px; min-width:500px; }
-        table th { background:#f8fafc; padding:8px; text-align:left; font-weight:600; border-bottom:2px solid #e2e8f0; }
-        table td { padding:8px; border-bottom:1px solid #e2e8f0; }
-
-        .status-confirmed { background:#D1FAE5; color:#065F46; padding:3px 8px; border-radius:15px; font-size:10px; font-weight:600; }
-        .status-pending { background:#FEF3C7; color:#92400E; padding:3px 8px; border-radius:15px; font-size:10px; font-weight:600; }
-
-        .chat-widget { position:fixed; right:14px; bottom:14px; z-index:999; display:flex; flex-direction:column; gap:8px; }
-        .chat-btn { width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:20px; box-shadow:0 4px 15px rgba(0,0,0,0.3); text-decoration:none; }
-        .chat-wa { background:#25D366; } .chat-tg { background:#0088cc; }
-
-        .site-footer { background:var(--dark); color:white; padding:30px 0 15px; margin-top:30px; }
-        .footer-grid { max-width:1300px; margin:0 auto; padding:0 16px; display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:20px; }
-        .footer-grid h4 { font-size:14px; margin-bottom:8px; }
-        .footer-grid p,.footer-grid li { font-size:11px; color:#94a3b8; margin-bottom:4px; }
-        .footer-grid ul { list-style:none; } .footer-grid a { color:#94a3b8; text-decoration:none; }
-        .footer-bottom { text-align:center; font-size:10px; color:#64748b; margin-top:20px; padding-top:15px; border-top:1px solid #1e293b; }
-
-        @media (max-width:640px) {
-            .hero-title { font-size:1.5rem; }
-            .main-nav { display:none; }
-            .main-nav.open { display:block; position:absolute; top:100%; left:0; right:0; background:white; box-shadow:0 10px 30px rgba(0,0,0,0.15); padding:10px; }
-            .main-nav.open ul { flex-direction:column; }
-            .mobile-toggle { display:block; }
-            .product-image-wrap { height:180px; }
-            .detail-image-wrap { height:200px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CreativeHub - Free Media & Entertainment</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f4f6fa;
+  color: #1a1a2e;
+  line-height: 1.8;
+}
+header {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: white;
+  padding: 50px 20px 30px;
+  text-align: center;
+}
+header h1 { font-size: 3rem; font-weight: 800; letter-spacing: -1px; }
+header h1 span { color: #f7971e; }
+header p { font-size: 1.2rem; opacity: 0.8; margin-top: 8px; font-weight: 300; }
+nav {
+  background: #1a1a2e;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 25px;
+  border-bottom: 3px solid #f7971e;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 5px 0; transition: color 0.3s; border-bottom: 2px solid transparent; }
+nav a:hover { color: #f7971e; border-bottom-color: #f7971e; }
+.container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+.categories .cat {
+  background: #fff;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+.categories .cat:hover,
+.categories .cat.active {
+  background: #1a1a2e;
+  color: #fff;
+  border-color: #f7971e;
+  transform: translateY(-2px);
+}
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
+}
+.post-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.post-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+}
+.post-card .img-wrap {
+  height: 220px;
+  overflow: hidden;
+  background: #ddd;
+}
+.post-card .img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+.post-card:hover .img-wrap img { transform: scale(1.04); }
+.post-card .content { padding: 20px 22px 24px; }
+.post-card .badge {
+  display: inline-block;
+  background: #f7971e;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 14px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+.post-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #1a1a2e;
+}
+.post-card h3 a { text-decoration: none; color: inherit; }
+.post-card h3 a:hover { color: #f7971e; }
+.post-card .meta {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 10px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.post-card .excerpt {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+.post-card .read-more {
+  display: inline-block;
+  font-weight: 700;
+  color: #f7971e;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.post-card .read-more:hover { text-decoration: underline; }
+.post-card .full-content {
+  display: none;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 2px solid #f0f0f0;
+  color: #333;
+  font-size: 0.95rem;
+}
+.post-card .full-content.show { display: block; }
+.post-card .full-content h4 { color: #302b63; margin: 15px 0 8px; }
+.post-card .full-content ul { padding-left: 20px; margin: 10px 0; }
+.post-card .full-content ul li { margin-bottom: 5px; }
+.sidebar {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+.sidebar h4 { font-size: 1.1rem; margin-bottom: 10px; color: #1a1a2e; }
+.sidebar ul { list-style: none; }
+.sidebar ul li { padding: 6px 0; border-bottom: 1px solid #eee; }
+.sidebar ul li a { color: #555; text-decoration: none; font-size: 0.95rem; }
+.sidebar ul li a:hover { color: #f7971e; }
+.sidebar input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  margin-top: 6px;
+}
+.sidebar button {
+  margin-top: 8px;
+  background: #f7971e;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.privacy-section {
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  margin-top: 40px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+.privacy-section h2 { font-size: 2rem; margin-bottom: 20px; color: #1a1a2e; }
+.privacy-section h3 { margin-top: 25px; margin-bottom: 10px; color: #302b63; }
+.privacy-section p, .privacy-section li { color: #444; font-size: 0.98rem; }
+.privacy-section ul { padding-left: 20px; }
+footer {
+  background: #0f0c29;
+  color: #ccc;
+  text-align: center;
+  padding: 40px 20px 30px;
+  margin-top: 50px;
+}
+footer a { color: #f7971e; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+footer .footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin: 15px 0 20px;
+}
+footer .footer-links a { color: #fff; font-size: 0.9rem; }
+footer .copy { font-size: 0.85rem; opacity: 0.7; }
+@media (max-width: 600px) {
+  header h1 { font-size: 2rem; }
+  nav { gap: 6px 12px; }
+  nav a { font-size: 0.8rem; }
+  .post-grid { grid-template-columns: 1fr; }
+  .privacy-section { padding: 20px; }
+}
+</style>
 </head>
 <body>
 
-    <!-- LIVE BAR -->
-    <div class="live-bar">
-        <div class="live-bar-inner">
-            <span class="live-dot"></span>
-            <span class="live-text">🔴 LIVE:</span>
-            <div class="live-scroll-wrap"><span class="live-scroll">🔥 "🚀 Welcome to Adprofb.com – Your Trusted Agency! our all Account Full Spending Guarantee & 100% Replacement Warranty on ALL accounts. 24/7 Support available. ⚠️ Please contact our Live Support immediately after placing your order!</span></div>
-            <span class="live-badge">⚡ ACTIVE</span>
+<header>
+  <h1>🎬 Creative<span>Hub</span></h1>
+  <p>Free & Legal Entertainment • Tutorials • Resources</p>
+</header>
+
+<nav>
+  <a href="#">🏠 Home</a>
+  <a href="#">🎥 Movies</a>
+  <a href="#">🎵 Music</a>
+  <a href="#">🎨 Art</a>
+  <a href="#">📚 Tutorials</a>
+  <a href="#">📰 Reviews</a>
+  <a href="#">🔒 Privacy</a>
+</nav>
+
+<div class="container">
+
+  <div class="categories">
+    <span class="cat active">🔥 All</span>
+    <span class="cat">🎬 Movies</span>
+    <span class="cat">🎵 Music</span>
+    <span class="cat">🎨 Art</span>
+    <span class="cat">💻 Tech</span>
+    <span class="cat">📝 Tutorials</span>
+    <span class="cat">📰 Reviews</span>
+  </div>
+
+  <div class="post-grid">
+
+    <!-- ===== POST 1 ===== -->
+    <div class="post-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&h=400&fit=crop" alt="Classic Cinema">
+      </div>
+      <div class="content">
+        <span class="badge">🎬 Movies</span>
+        <h3><a href="#">Top 10 Classic Films Now in Public Domain</a></h3>
+        <div class="meta"><span>📅 June 19, 2026</span> <span>⏱ 5 min read</span></div>
+        <p class="excerpt">From Nosferatu to Metropolis — explore timeless masterpieces you can legally watch and share today.</p>
+        <a href="#" class="read-more" onclick="toggleFull(this); return false;">Read Full Article ↓</a>
+        <div class="full-content">
+          <p>Classic cinema has given us some of the most influential films in history. The good news? Many of these masterpieces are now in the public domain, meaning you can watch, share, and even remix them without any copyright restrictions.</p>
+          <h4>Top 10 Public Domain Classics:</h4>
+          <ul>
+            <li><strong>Nosferatu (1922)</strong> — The iconic vampire film that defined horror.</li>
+            <li><strong>Metropolis (1927)</strong> — Fritz Lang's groundbreaking sci-fi epic.</li>
+            <li><strong>The Cabinet of Dr. Caligari (1920)</strong> — German Expressionist masterpiece.</li>
+            <li><strong>Battleship Potemkin (1925)</strong> — Eisenstein's montage revolution.</li>
+            <li><strong>The General (1926)</strong> — Buster Keaton's greatest comedy.</li>
+            <li><strong>Sherlock Jr. (1924)</strong> — More Keaton genius.</li>
+            <li><strong>The Phantom of the Opera (1925)</strong> — Lon Chaney's legendary performance.</li>
+            <li><strong>The Lost World (1925)</strong> — First dinosaur film with stop-motion.</li>
+            <li><strong>The Kid (1921)</strong> — Charlie Chaplin's emotional masterpiece.</li>
+            <li><strong>The Gold Rush (1925)</strong> — Chaplin's comedic gold.</li>
+          </ul>
+          <p>All these films are available for free on platforms like Archive.org and YouTube. Grab some popcorn and enjoy cinema history!</p>
         </div>
+      </div>
     </div>
 
-    <!-- HEADER -->
-    <header class="site-header">
-        <div class="header-inner">
-            <a href="#" class="logo-wrap" onclick="scrollToTop()">
-                <div class="logo-icon"><i class="fab fa-facebook"></i></div>
-                <div><span class="logo-text">ADPROFB</span><span class="logo-sub">Your Trusted Agency</span></div>
-            </a>
-            <button class="mobile-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
-            <nav class="main-nav" id="mainNav">
-                <ul>
-                    <li><a href="#" onclick="scrollToTop();return false;" class="active">Home</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="https://adprofb.com/checker">Checker</a></li>
-                    <li><a href="https://adprofb.com/protools">Protools</a></li>
-                    <li><a href="https://adprofb.com/namsogen">Namsogen</a></li>
-                    <li><a href="https://t.me/adprofb">Channels</a></li>
-                    <li><a href="https://t.me/adprofb2">Groups</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <a href="#" class="cart-btn" onclick="toggleCart();return false;"><i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span></a>
-                <button class="btn btn-primary" onclick="showLoginModal()"><i class="fas fa-user"></i> Login</button>
-                <span id="loggedInUser" style="display:none; font-weight:600; font-size:12px; cursor:pointer; color:var(--primary);" onclick="showDashboard()"></span>
-                <button id="logoutBtn" class="btn btn-outline" style="display:none;" onclick="logoutUser()"><i class="fas fa-sign-out-alt"></i></button>
-            </div>
+    <!-- ===== POST 2 ===== -->
+    <div class="post-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&h=400&fit=crop" alt="Music Production">
+      </div>
+      <div class="content">
+        <span class="badge">🎵 Music</span>
+        <h3><a href="#">How to Produce Music for Free in 2026</a></h3>
+        <div class="meta"><span>📅 June 18, 2026</span> <span>⏱ 7 min read</span></div>
+        <p class="excerpt">Discover powerful free DAWs, VST plugins, and royalty-free samples to start your music career.</p>
+        <a href="#" class="read-more" onclick="toggleFull(this); return false;">Read Full Article ↓</a>
+        <div class="full-content">
+          <p>You don't need thousands of dollars to make professional-sounding music. With free tools available today, anyone can produce, mix, and master tracks from their bedroom.</p>
+          <h4>Best Free DAWs (Digital Audio Workstations):</h4>
+          <ul>
+            <li><strong>Waveform Free</strong> — Full-featured with unlimited tracks.</li>
+            <li><strong>Studio One Prime</strong> — Intuitive workflow for beginners.</li>
+            <li><strong>Reaper</strong> — Unlimited free trial, incredibly powerful.</li>
+            <li><strong>BandLab</strong> — Browser-based, perfect for collaboration.</li>
+            <li><strong>LMMS</strong> — Open-source alternative to FL Studio.</li>
+          </ul>
+          <h4>Free VST Plugins You Need:</h4>
+          <ul>
+            <li><strong>Spitfire LABS</strong> — High-quality orchestral sounds.</li>
+            <li><strong>Ample Guitar M Lite</strong> — Realistic acoustic guitar.</li>
+            <li><strong>Dexed</strong> — Classic FM synthesis.</li>
+            <li><strong>Vital</strong> — Wavetable synth that rivals Serum.</li>
+          </ul>
+          <p>For samples, check out Splice Sounds Free, Cymatics, and Looperman. Start producing today — your first track is just a download away!</p>
         </div>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <div class="hero-badge"><i class="fas fa-crown"></i> #1 Trusted Marketplace</div>
-            <h1 class="hero-title">Premium <span>Facebook</span> Accounts</h1>
-            <p class="hero-subtitle">Credit Lines • Ad Funds • Verified BM • Aged Accounts • Instant Delivery</p>
-            <div class="hero-buttons">
-                <a href="#products" class="hero-btn-primary"><i class="fas fa-shopping-bag"></i> Explore Products</a>
-                <a href="#contact" class="hero-btn-outline"><i class="fas fa-headset"></i> Contact</a>
-            </div>
-            <div class="hero-stats">
-                <div class="hero-stat"><div class="stat-number">50K+</div><div class="stat-label">Customers</div></div>
-                <div class="hero-stat"><div class="stat-number">100K+</div><div class="stat-label">Sold</div></div>
-                <div class="hero-stat"><div class="stat-number">4.9★</div><div class="stat-label">Rating</div></div>
-                <div class="hero-stat"><div class="stat-number">24/7</div><div class="stat-label">Support</div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRODUCTS -->
-    <section id="products" class="section-wrap">
-        <div class="container">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;flex-wrap:wrap;">
-                <h2 class="section-title">Products <span id="productCount" style="font-size:12px;color:#64748b;font-weight:400;"></span></h2>
-            </div>
-            <div class="filter-bar">
-                <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()">
-                    <i class="fas fa-search"></i>
-                </div>
-                <div class="filter-pills">
-                    <button onclick="filterProducts('all')" class="filter-pill active">All</button>
-                    <button onclick="filterProducts('Credit Line')" class="filter-pill">Credit Line</button>
-                    <button onclick="filterProducts('Ad Fund')" class="filter-pill">Ad Fund</button>
-                    <button onclick="filterProducts('Verified BM')" class="filter-pill">Verified BM</button>
-                    <button onclick="filterProducts('Aged Account')" class="filter-pill">Aged</button>
-                    <button onclick="filterProducts('Premium')" class="filter-pill">Premium</button>
-                </div>
-            </div>
-            <div id="productGrid" class="product-grid"></div>
-        </div>
-    </section>
-
-    <!-- PRODUCT DETAIL MODAL -->
-    <div id="productDetailModal" class="modal-overlay" onclick="closeProductDetail(event)">
-        <div style="position:relative; max-width:550px; width:92%;">
-            <button class="modal-close-btn" onclick="document.getElementById('productDetailModal').classList.remove('active')">×</button>
-            <div class="modal-box" id="productDetailContent" onclick="event.stopPropagation()" style="margin:0 auto;"></div>
-        </div>
+      </div>
     </div>
 
-    <!-- CART -->
-    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
-    <div class="cart-sidebar" id="cartSidebar">
-        <div style="padding:16px;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;"><h3>🛒 Cart</h3><button onclick="toggleCart()" style="background:none;border:none;font-size:20px;cursor:pointer;">×</button></div>
-        <div id="cartItems" style="flex:1;overflow-y:auto;padding:16px;"></div>
-        <div style="padding:16px;border-top:1px solid #e2e8f0;background:#f8fafc;"><div style="display:flex;justify-content:space-between;margin-bottom:12px;font-weight:700;"><span>Total:</span><span style="color:var(--primary);" id="cartTotal">$0.00</span></div><button class="btn btn-success" style="width:100%;justify-content:center;padding:12px;" onclick="checkout()">🔒 Checkout</button></div>
-    </div>
-
-    <!-- CHECKOUT -->
-    <div id="checkoutModal" class="modal-overlay"><div class="modal-box"><div style="display:flex;justify-content:space-between;margin-bottom:15px;"><h3>💳 Checkout</h3><button onclick="closeCheckout()" style="background:none;border:none;font-size:20px;cursor:pointer;">×</button></div><div id="checkoutContent"></div></div></div>
-
-    <!-- SUCCESS -->
-    <div id="successModal" class="modal-overlay"><div class="modal-box" style="text-align:center;"><i class="fas fa-clock" style="font-size:3rem;color:#F59E0B;"></i><h3>Order Submitted!</h3><p style="color:#64748b;">Pending verification</p><button class="btn btn-primary" onclick="document.getElementById('successModal').classList.remove('active')" style="width:100%;justify-content:center;margin-top:12px;">OK</button></div></div>
-
-    <!-- LOGIN -->
-    <div id="loginModal" class="modal-overlay"><div class="modal-box" style="max-width:380px;"><div style="display:flex;justify-content:space-between;margin-bottom:15px;"><h3>Account</h3><button onclick="closeLoginModal()" style="background:none;border:none;font-size:20px;cursor:pointer;">×</button></div><div style="display:flex;background:#f1f5f9;border-radius:8px;padding:3px;margin-bottom:15px;"><button onclick="switchAuthTab('login')" id="loginTabBtn" style="flex:1;padding:10px;border:none;background:white;border-radius:6px;font-weight:600;cursor:pointer;font-size:13px;">Login</button><button onclick="switchAuthTab('signup')" id="signupTabBtn" style="flex:1;padding:10px;border:none;background:transparent;border-radius:6px;font-weight:600;cursor:pointer;color:#64748b;font-size:13px;">Sign Up</button></div><form id="loginForm" onsubmit="handleLogin(event)"><input type="email" required placeholder="Email" style="width:100%;padding:10px;border:2px solid #e2e8f0;border-radius:8px;margin-bottom:10px;font-size:13px;"><input type="password" required placeholder="Password" style="width:100%;padding:10px;border:2px solid #e2e8f0;border-radius:8px;margin-bottom:12px;font-size:13px;"><button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:12px;">Login</button></form><form id="signupForm" onsubmit="handleSignup(event)" style="display:none;"><input type="text" required placeholder="Full Name" style="width:100%;padding:10px;border:2px solid #e2e8f0;border-radius:8px;margin-bottom:10px;font-size:13px;"><input type="email" required placeholder="Email" style="width:100%;padding:10px;border:2px solid #e2e8f0;border-radius:8px;margin-bottom:10px;font-size:13px;"><input type="password" required placeholder="Password (min 6)" minlength="6" style="width:100%;padding:10px;border:2px solid #e2e8f0;border-radius:8px;margin-bottom:12px;font-size:13px;"><button type="submit" class="btn btn-success" style="width:100%;justify-content:center;padding:12px;">Create Account</button></form></div></div>
-
-    <!-- DASHBOARD -->
-    <div id="dashboardModal" class="modal-overlay"><div class="modal-box" style="max-width:850px;"><div style="display:flex;justify-content:space-between;margin-bottom:15px;"><h3>📊 My Dashboard</h3><button onclick="closeDashboard()" style="background:none;border:none;font-size:20px;cursor:pointer;">×</button></div><div class="dash-grid"><div class="dash-card"><div class="dash-number" id="dashOrders" style="color:var(--primary);">0</div><div class="dash-label">Orders</div></div><div class="dash-card"><div class="dash-number" id="dashConfirmed" style="color:var(--success);">0</div><div class="dash-label">Confirmed</div></div><div class="dash-card"><div class="dash-number" id="dashPending" style="color:var(--warning);">0</div><div class="dash-label">Pending</div></div><div class="dash-card"><div class="dash-number" style="color:var(--premium);" id="dashDownloads">0</div><div class="dash-label">Downloads</div></div></div><div class="table-wrap"><table><thead><tr><th>Order ID</th><th>Products</th><th>Amount</th><th>Date</th><th>Status</th><th>Action</th></tr></thead><tbody id="dashOrdersTable"></tbody></table></div></div></div>
-
-    <!-- DOWNLOAD -->
-    <div id="downloadModal" class="modal-overlay"><div class="modal-box" style="max-width:500px;"><div style="display:flex;justify-content:space-between;margin-bottom:12px;"><h3>📥 Download</h3><button onclick="document.getElementById('downloadModal').classList.remove('active')" style="background:none;border:none;font-size:20px;cursor:pointer;">×</button></div><div id="downloadContent"></div></div></div>
-
-    <!-- CHAT -->
-    <div class="chat-widget">
-        <a href="https://t.me/sigmabot5" class="chat-btn chat-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://t.me/sigmabot5" class="chat-btn chat-tg" target="_blank"><i class="fab fa-telegram-plane"></i></a>
-    </div>
-
-    <!-- FOOTER -->
-    <footer id="contact" class="site-footer">
-        <div class="footer-grid">
-            <div><h4>Facebook agency ad Account</h4><p>#1 Premium Marketplace for Facebook Accounts.</p></div>
-            <div><h4>Links</h4><ul><li><a href="#" onclick="scrollToTop()">Home</a></li><li><a href="#products">Products</a></li></ul></div>
-            <div><h4>Contact</h4><p>📱 @sigmabot5<br>💬 </p></div>
-            <div><h4>Payment</h4><p>💵 USDT | ₿ BTC | 💠 ETH | 🚀 LTC</p></div>
+    <!-- ===== POST 3 ===== -->
+    <div class="post-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600&h=400&fit=crop" alt="Digital Art">
+      </div>
+      <div class="content">
+        <span class="badge">🎨 Art</span>
+        <h3><a href="#">Digital Painting for Beginners: Free Tools Guide</a></h3>
+        <div class="meta"><span>📅 June 17, 2026</span> <span>⏱ 6 min read</span></div>
+        <p class="excerpt">Learn to create stunning digital art using Krita, GIMP, and Inkscape — all completely free.</p>
+        <a href="#" class="read-more" onclick="toggleFull(this); return false;">Read Full Article ↓</a>
+        <div class="full-content">
+          <p>Digital painting is more accessible than ever. Whether you want to create concept art, illustrations, or photo manipulations, these free tools rival paid software.</p>
+          <h4>Free Digital Art Software:</h4>
+          <ul>
+            <li><strong>Krita</strong> — Professional-grade painting software with hundreds of brushes.</li>
+            <li><strong>GIMP</strong> — The go-to for photo editing and digital art.</li>
+            <li><strong>Inkscape</strong> — Vector graphics for logos and illustrations.</li>
+            <li><strong>MediBang Paint</strong> — Great for manga and comic art.</li>
+            <li><strong>FireAlpaca</strong> — Lightweight and beginner-friendly.</li>
+          </ul>
+          <h4>Beginner Tips:</h4>
+          <ul>
+            <li>Start with a cheap drawing tablet (Huion or XP-Pen under $50).</li>
+            <li>Learn the basics of layers, blending modes, and masking.</li>
+            <li>Practice daily with 10-minute sketches.</li>
+            <li>Use color palettes from Coolors or Adobe Color.</li>
+          </ul>
+          <p>Join communities like r/DigitalPainting and DeviantArt to share your work and get feedback. Your artistic journey starts now!</p>
         </div>
-        <div class="footer-bottom"><p>&copy; copy rigth by ADS FATHER 2024.</p></div>
-    </footer>
+      </div>
+    </div>
 
-    <script>
-        var CRYPTO={USDT BSC:"0x59760DFC935d0212502654A1171bb41A16cC02Ee",BTC:"bc1pp8r4av67q5qys7nlnr2nzmuv28qz2ruwt4acx2v8unk2hgkzdnnsj7d2hg",LTC:"ltc1qhfrn9yvtj6w7rtm30ez0ej8z5cxy53e9esqwl0",ETH:"0x59760DFC935d0212502654A1171bb41A16cC02Ee"};
+    <!-- ===== POST 4 ===== -->
+    <div class="post-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" alt="Web Development">
+      </div>
+      <div class="content">
+        <span class="badge">💻 Tech</span>
+        <h3><a href="#">Build Your First Website with HTML & CSS</a></h3>
+        <div class="meta"><span>📅 June 16, 2026</span> <span>⏱ 8 min read</span></div>
+        <p class="excerpt">A step-by-step guide for absolute beginners to create a modern, responsive website from scratch.</p>
+        <a href="#" class="read-more" onclick="toggleFull(this); return false;">Read Full Article ↓</a>
+        <div class="full-content">
+          <p>Building a website is easier than you think. With just HTML and CSS, you can create a beautiful, responsive site in a few hours.</p>
+          <h4>Your First HTML Document:</h4>
+          <pre style="background:#f4f4f4; padding:10px; border-radius:8px; overflow-x:auto;">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;My First Website&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello, World!&lt;/h1&gt;
+  &lt;p&gt;This is my first website.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+          </pre>
+          <h4>Key CSS Concepts:</h4>
+          <ul>
+            <li><strong>Box Model</strong> — Margin, padding, border, content.</li>
+            <li><strong>Flexbox</strong> — For flexible layouts.</li>
+            <li><strong>Grid</strong> — For complex layouts.</li>
+            <li><strong>Media Queries</strong> — For responsive design.</li>
+          </ul>
+          <p>Use VS Code (free) with Live Server extension for real-time preview. Practice by cloning simple website templates!</p>
+        </div>
+      </div>
+    </div>
 
-        // ⚡ PRODUCTS - SUDHU NICHE EDIT KORBEN ⚡
-        // image: "filename.jpg" - public_html folder e rakben
-        var products=[
-             {id:1,name:"BM 2500 Full Verified",regPrice:11300,offerPrice:6700,desc:"Fully verified Business Manager also Usa Ducoment, If you face any issu 30 Day 100% Replacement Warranty, Account Full Verified and 24/7 live support..",type:"Verified BM",stock:17,rating:5.0,buyers:127,badge:"Limited",image:"photo_2026-05-22_12-37-09.jpg",delivery:"BM: 987654321\nAdmin: admin@bm.com\nPass: BmPass@123"},
-            {id:2,name:"Scan Credit Line $25000 Limit Daily",regPrice:1821.99,offerPrice:1378.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with balance $25000 Limit Account Full Verified and 24/7 live support.",type:"Credit Line",stock:25,rating:4.8,buyers:1234,badge:"Best Seller",image:"10-03.jpg",delivery:"Email: user123@gmail.com\nPassword: Pass@123\nCredit: $250\nStatus: Verified"},
-            {id:3,name:"Facebook Credit Line $5000 Limit",regPrice:527.99,offerPrice:421.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with balance $5000 Limit Account Full Verified and 24/7 live support.",type:"Credit Line",stock:15,rating:4.9,buyers:892,badge:"Hot Deal 🔥",image:"502.jpg",delivery:"Email: pro456@gmail.com\nPassword: Pass@456\nCredit: $5000"},
-            {id:4,name:"Facebook AdFund $891",regPrice:149.99,offerPrice:79.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with $891 balance.",type:"Ad Fund",stock:10,rating:4.7,buyers:567,badge:"Premium",image:"36.jpg",delivery:"Account: 100234567\nBalance: $891\nToken: EAAxxx"},
-            {id:5,name:"BM 2500 Full Verified",regPrice:13200,offerPrice:8666,desc:"Fully verified Business Manager also Usa Ducoment, If you face any issu 30 Day 100% Replacement Warranty, Account Full Verified and 24/7 live support..",type:"Verified BM",stock:8,rating:5.0,buyers:345,badge:"Limited",image:"bm2500.jpg",delivery:"BM: 987654321\nAdmin: admin@bm.com\nPass: BmPass@123"},
-             {id:6,name:"BM 2500 No Verified",regPrice:11200,offerPrice:6100,desc:"Claim Guarante and 24/7 live support..",type:"Verified BM",stock:5,rating:5.0,buyers:345,badge:"Limited",image:"31-27.jpg",delivery:"BM: 987654321\nAdmin: admin@bm.com\nPass: BmPass@123"},
-             {id:7,name:"BM 2500 Full Verified",regPrice:11300,offerPrice:6200,desc:"Fully verified Business Manager also Usa Ducoment, If you face any issu 30 Day 100% Replacement Warranty, Account Full Verified and 24/7 live support..",type:"Verified BM",stock:17,rating:5.0,buyers:127,badge:"Limited",image:"7-31-36.jpg",delivery:"BM: 987654321\nAdmin: admin@bm.com\nPass: BmPass@123"},
-            {id:8,name:"Pro AdFund $999",regPrice:349.99,offerPrice:111.99,desc:"Full Spending Guarantee | 100% Replacement Warranty balance $999 Limit Account Full Verified and 24/7 live support.",type:"Ad Fund",stock:11,rating:5.0,buyers:89,badge:"Pro",image:"999.jpg",delivery:"Account: PRO987654\nBalance: $2500"},
-            {id:9,name:"Facebook Credit Line $2500 Limit",regPrice:499.99,offerPrice:349.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with balance $2500, daily limit $2500  Account Full Verified and 24/7 live support.",type:"Premium",stock:2,rating:5.0,buyers:56,badge:"Enterprise",image:"14-10-03 (2).jpg",delivery:"BM: ENT123456\nAccounts: 10\nCredit: $5000"},
-            {id:10,name:"Facebook AdFund $999",regPrice:149.99,offerPrice:89.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with $999 balance.",type:"Ad Fund",stock:10,rating:4.7,buyers:567,badge:"Premium",image:"Screenshot_19.png",delivery:"Account: 100234567\nBalance: $999\nToken: EAAxxx"},
-            {id:11,name:"Facebook AdFund $711",regPrice:149.99,offerPrice:75.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with $711 balance.",type:"Ad Fund",stock:10,rating:4.7,buyers:567,badge:"Premium",image:"Screenshot_18.png",delivery:"Account: 100234567\nBalance: $711\nToken: EAAxxx"},
-            {id:12,name:"Facebook AdFund $629",regPrice:149.99,offerPrice:65.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with $629 balance.",type:"Ad Fund",stock:10,rating:4.7,buyers:567,badge:"Premium",image:"Screenshot_17.png",delivery:"Account: 100234567\nBalance: $629\nToken: EAAxxx"},
-             {id:13,name:"Amazon.co.uk $500 eGift Card – Email Delivery in Minutes | Animated Design | Redeemable on Millions of Items",regPrice:499.99,offerPrice:349.99,desc:"Amazon.co.uk $500 eGift Card – Email Delivery in Minutes | Animated Design | Redeemable on Millions of Items and 24/7 live support.",type:"Premium",stock:2,rating:5.0,buyers:56,badge:"Enterprise",image:"sm.png",delivery:"BM: ENT123456\nAccounts: 10\nCredit: $5000"},
-             {id:14,name:"Facebook AdFund $976 Accounts",regPrice:149.99,offerPrice:110.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with $976 balance.",type:"Ad Fund",stock:10,rating:4.7,buyers:567,badge:"Premium",image:"Screens.png",delivery:"Account: 100234567\nBalance: $891\nToken: EAAxxx"},
-              {id:15,name:"Facebook AdFund $699 Accounts",regPrice:149.99,offerPrice:74.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with $699 balance.",type:"Ad Fund",stock:10,rating:4.7,buyers:567,badge:"Premium",image:"Screenshot_29.png",delivery:"Account: 100234567\nBalance: $891\nToken: EAAxxx"},
-               {id:16,name:"Facebook AdFund $731 Accounts",regPrice:149.99,offerPrice:79.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with $731 balance.",type:"Ad Fund",stock:10,rating:4.7,buyers:567,badge:"Premium",image:"Screenshot_28.png",delivery:"Account: 100234567\nBalance: $891\nToken: EAAxxx"},
-                {id:17,name:"Facebook AdFund $897 Accounts",regPrice:149.99,offerPrice:89.99,desc:"Full Spending Guarantee | 100% Replacement Warranty with $897 balance.",type:"Ad Fund",stock:10,rating:4.7,buyers:567,badge:"Premium",image:"Screenshot_27.png",delivery:"Account: 100234567\nBalance: $891\nToken: EAAxxx"},
-        ];
+    <!-- ===== POST 5 ===== -->
+    <div class="post-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&h=400&fit=crop" alt="Film Making">
+      </div>
+      <div class="content">
+        <span class="badge">🎬 Movies</span>
+        <h3><a href="#">No-Budget Filmmaking: Gear Under $100</a></h3>
+        <div class="meta"><span>📅 June 15, 2026</span> <span>⏱ 5 min read</span></div>
+        <p class="excerpt">You don't need expensive equipment. These tips and hacks will help you shoot like a pro on a budget.</p>
+        <a href="#" class="read-more" onclick="toggleFull(this); return false;">Read Full Article ↓</a>
+        <div class="full-content">
+          <p>Professional-looking films can be made with minimal equipment. Here's how to get started with under $100.</p>
+          <h4>Essential Gear Under $100:</h4>
+          <ul>
+            <li><strong>Smartphone</strong> — Modern phones shoot 4K video (iPhone, Pixel, Samsung).</li>
+            <li><strong>Smartphone Tripod</strong> — $15-20 (Amazon basics work great).</li>
+            <li><strong>Lavalier Microphone</strong> — $15-25 for decent sound.</li>
+            <li><strong>LED Panel Light</strong> — $30 for basic lighting kit.</li>
+            <li><strong>DIY Diffusion</strong> — Baking paper or white shower curtain.</li>
+          </ul>
+          <h4>Free Editing Software:</h4>
+          <ul>
+            <li>DaVinci Resolve — Hollywood-grade color grading.</li>
+            <li>Shotcut — Open-source and powerful.</li>
+            <li>OpenShot — Simple and beginner-friendly.</li>
+          </ul>
+          <p>Total cost: ~$80. Now go make your first short film!</p>
+        </div>
+      </div>
+    </div>
 
-        var currentUser=null,users=[],cart=[],orders=[],currentFilter='all',selectedCrypto='';
+    <!-- ===== POST 6 ===== -->
+    <div class="post-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=400&fit=crop" alt="Music Review">
+      </div>
+      <div class="content">
+        <span class="badge">🎵 Music</span>
+        <h3><a href="#">Best Royalty-Free Music Sites for Creators</a></h3>
+        <div class="meta"><span>📅 June 14, 2026</span> <span>⏱ 4 min read</span></div>
+        <p class="excerpt">Top platforms like Pixabay, Uppbeat, and Free Music Archive for your YouTube videos and podcasts.</p>
+        <a href="#" class="read-more" onclick="toggleFull(this); return false;">Read Full Article ↓</a>
+        <div class="full-content">
+          <p>Finding good music for your videos without copyright issues can be a challenge. Here are the best sites for royalty-free music.</p>
+          <h4>Top Royalty-Free Music Sites:</h4>
+          <ul>
+            <li><strong>Pixabay Music</strong> — Huge library, no attribution required.</li>
+            <li><strong>Uppbeat</strong> — High-quality tracks, free for YouTube.</li>
+            <li><strong>Free Music Archive</strong> — Curated selection of legal music.</li>
+            <li><strong>Incompetech</strong> — Kevin MacLeod's classic collection.</li>
+            <li><strong>YouTube Audio Library</strong> — Free for YouTube creators.</li>
+            <li><strong>Freesound.org</strong> — Great for sound effects.</li>
+          </ul>
+          <p>Always check the license before using. Most require credit to the artist. Support independent musicians when you can!</p>
+        </div>
+      </div>
+    </div>
 
-        function init(){var u=localStorage.getItem('fb_users');if(u)try{users=JSON.parse(u)}catch(e){users=[]}var c=localStorage.getItem('fb_cart');if(c)try{cart=JSON.parse(c)}catch(e){cart=[]}var o=localStorage.getItem('fb_orders');if(o)try{orders=JSON.parse(o)}catch(e){orders=[]}var cu=localStorage.getItem('fb_currentUser');if(cu)try{currentUser=JSON.parse(cu)}catch(e){currentUser=null}updateUserUI()}
-        function save(){localStorage.setItem('fb_users',JSON.stringify(users));localStorage.setItem('fb_cart',JSON.stringify(cart));localStorage.setItem('fb_orders',JSON.stringify(orders));if(currentUser)localStorage.setItem('fb_currentUser',JSON.stringify(currentUser));else localStorage.removeItem('fb_currentUser')}
-        function getPrice(p){return(p.offerPrice&&p.offerPrice<p.regPrice)?p.offerPrice:p.regPrice}
-        function hasOffer(p){return p.offerPrice&&p.offerPrice<p.regPrice}
-        function findProduct(id){for(var i=0;i<products.length;i++){if(products[i].id===id)return products[i]}return null}
+    <!-- ===== POST 7 ===== -->
+    <div class="post-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=600&h=400&fit=crop" alt="Animation">
+      </div>
+      <div class="content">
+        <span class="badge">🎨 Art</span>
+        <h3><a href="#">The Evolution of Animation: 1900 to Today</a></h3>
+        <div class="meta"><span>📅 June 13, 2026</span> <span>⏱ 10 min read</span></div>
+        <p class="excerpt">From silent black-and-white cartoons to CGI — a visual history of animation with free resources.</p>
+        <a href="#" class="read-more" onclick="toggleFull(this); return false;">Read Full Article ↓</a>
+        <div class="full-content">
+          <p>Animation has evolved dramatically over the past century. Let's take a journey through its rich history.</p>
+          <h4>Key Eras of Animation:</h4>
+          <ul>
+            <li><strong>1900-1920:</strong> Silent era — Émile Cohl's "Fantasmagorie" (1908), Winsor McCay's "Gertie the Dinosaur" (1914).</li>
+            <li><strong>1920-1930:</strong> The rise of Disney — Steamboat Willie (1928) introduces Mickey Mouse.</li>
+            <li><strong>1930-1950:</strong> Golden Age — Snow White (1937), Looney Tunes, Tom and Jerry.</li>
+            <li><strong>1950-1970:</strong> Television era — Hanna-Barbera dominates with limited animation.</li>
+            <li><strong>1970-1990:</strong> Renaissance — Disney's "The Little Mermaid" (1989) starts a revival.</li>
+            <li><strong>1990-2000:</strong> CGI revolution — Toy Story (1995), first full-length CGI film.</li>
+            <li><strong>2000-Today:</strong> Digital age — Pixar, DreamWorks, anime global dominance.</li>
+          </ul>
+          <p>Today, anyone can animate with free tools like Pencil2D, Blender, and OpenToonz. The future of animation is in your hands!</p>
+        </div>
+      </div>
+    </div>
 
-        function renderProducts(filterType){
-            filterType=filterType||'all';
-            var list=filterType==='all'?products:products.filter(function(p){return p.type===filterType});
-            document.getElementById('productCount').textContent='('+list.length+')';
-            var grid=document.getElementById('productGrid');
-            if(list.length===0){grid.innerHTML='<div style="text-align:center;padding:50px;color:#64748b;grid-column:1/-1;">No products</div>';return}
-            var html='';
-            for(var i=0;i<list.length;i++){
-                var p=list[i],price=getPrice(p),offer=hasOffer(p);
-                html+='<div class="product-card" onclick="showDetail('+p.id+')">';
-                // IMAGE SECTION - FIXED
-                html+='<div class="product-image-wrap">';
-                if(p.image&&p.image!==''){
-                    html+='<img src="'+p.image+'" alt="'+p.name+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';">';
-                    html+='<div class="product-img-placeholder" style="display:none;"><i class="fab fa-facebook"></i></div>';
-                }else{
-                    html+='<div class="product-img-placeholder"><i class="fab fa-facebook"></i></div>';
-                }
-                if(p.badge)html+='<span class="product-badge">'+p.badge+'</span>';
-                html+='<span class="product-category">'+p.type+'</span>';
-                html+='<span class="product-rating">★ '+p.rating+'</span>';
-                html+='</div>';
-                // INFO SECTION
-                html+='<div class="product-info">';
-                html+='<h3 class="product-name">'+p.name+'</h3>';
-                html+='<p class="product-desc">'+p.desc+'</p>';
-                html+='<div class="product-price-wrap"><span class="product-price">$'+price.toFixed(2)+'</span>';
-                if(offer)html+='<span class="original-price">$'+p.regPrice.toFixed(2)+'</span><span class="discount-badge">-'+Math.round((1-p.offerPrice/p.regPrice)*100)+'%</span>';
-                html+='</div>';
-                html+='<div class="product-actions"><button class="add-cart-btn" onclick="event.stopPropagation();addToCart('+p.id+')" '+(p.stock===0?'disabled':'')+'>🛒 Cart</button><button class="buy-btn" onclick="event.stopPropagation();buyNow('+p.id+')" '+(p.stock===0?'disabled':'')+'>⚡ Buy</button></div>';
-                html+='<p class="stock-info"><span class="'+(p.stock>0?'in-stock':'out-stock')+'">'+(p.stock>0?'✅ '+p.stock:'❌ Out')+'</span><span>👥 '+p.buyers+'</span></p>';
-                html+='</div></div>';
-            }
-            grid.innerHTML=html;
-        }
+    <!-- ===== POST 8 ===== -->
+    <div class="post-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=400&fit=crop" alt="Video Editing">
+      </div>
+      <div class="content">
+        <span class="badge">💻 Tech</span>
+        <h3><a href="#">Top 5 Free Video Editors in 2026 (Compared)</a></h3>
+        <div class="meta"><span>📅 June 12, 2026</span> <span>⏱ 6 min read</span></div>
+        <p class="excerpt">In-depth comparison of DaVinci Resolve, Shotcut, OpenShot, Olive, and VSDC Free.</p>
+        <a href="#" class="read-more" onclick="toggleFull(this); return false;">Read Full Article ↓</a>
+        <div class="full-content">
+          <p>Choosing a video editor can be overwhelming. Here's a breakdown of the best free options available.</p>
+          <h4>Comparison Table:</h4>
+          <ul>
+            <li><strong>DaVinci Resolve</strong> — Professional color grading, steep learning curve, but worth it.</li>
+            <li><strong>Shotcut</strong> — Open-source, supports all formats, good for intermediate users.</li>
+            <li><strong>OpenShot</strong> — Simple interface, great for beginners, easy to learn.</li>
+            <li><strong>Olive</strong> — New open-source editor with promise, still in development.</li>
+            <li><strong>VSDC Free</strong> — Windows-only, feature-packed with non-linear editing.</li>
+          </ul>
+          <p>Recommendation: Start with OpenShot for basic edits, then transition to DaVinci Resolve for serious projects.</p>
+        </div>
+      </div>
+    </div>
 
-        function searchProducts(){
-            var q=document.getElementById('searchInput').value.toLowerCase().trim();
-            if(!q){renderProducts(currentFilter);return}
-            var list=products.filter(function(p){return p.name.toLowerCase().indexOf(q)>-1||p.type.toLowerCase().indexOf(q)>-1||p.desc.toLowerCase().indexOf(q)>-1});
-            document.getElementById('productCount').textContent='('+list.length+' results)';
-            var grid=document.getElementById('productGrid');
-            if(list.length===0){grid.innerHTML='<div style="text-align:center;padding:50px;color:#64748b;grid-column:1/-1;">No products found</div>';return}
-            var html='';
-            for(var i=0;i<list.length;i++){
-                var p=list[i],price=getPrice(p),offer=hasOffer(p);
-                html+='<div class="search-product-card" onclick="showDetail('+p.id+')">';
-                html+='<div class="product-image-wrap" style="height:160px;">';
-                if(p.image&&p.image!=='')html+='<img src="'+p.image+'" alt="'+p.name+'">';
-                else html+='<div class="product-img-placeholder"><i class="fab fa-facebook"></i></div>';
-                if(p.badge)html+='<span class="product-badge">'+p.badge+'</span>';
-                html+='<span class="product-category">'+p.type+'</span><span class="product-rating">★ '+p.rating+'</span></div>';
-                html+='<div class="product-info"><h3 class="product-name">'+p.name+'</h3><p class="product-desc">'+p.desc+'</p><div class="product-price-wrap"><span class="product-price">$'+price.toFixed(2)+'</span>';
-                if(offer)html+='<span class="original-price">$'+p.regPrice.toFixed(2)+'</span><span class="discount-badge">-'+Math.round((1-p.offerPrice/p.regPrice)*100)+'%</span></div>';
-                html+='<div class="product-actions"><button class="add-cart-btn" onclick="event.stopPropagation();addToCart('+p.id+')" '+(p.stock===0?'disabled':'')+'>🛒 Cart</button><button class="buy-btn" onclick="event.stopPropagation();buyNow('+p.id+')" '+(p.stock===0?'disabled':'')+'>⚡ Buy</button></div></div></div>';
-            }
-            grid.innerHTML=html;
-        }
+    <!-- ===== POST 9 ===== -->
+    <div class="post-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?w=600&h=400&fit=crop" alt="Photography">
+      </div>
+      <div class="content">
+        <span class="badge">📝 Tutorials</span>
+        <h3><a href="#">Photography 101: Master Your Camera Settings</a></h3>
+        <div class="meta"><span>📅 June 11, 2026</span> <span>⏱ 7 min read</span></div>
+        <p class="excerpt">Learn aperture, shutter speed, ISO, and composition with simple exercises you can do today.</p>
+        <a href="#" class="read-more" onclick="toggleFull(this); return false;">Read Full Article ↓</a>
+        <div class="full-content">
+          <p>Understanding the exposure triangle is the foundation of great photography. Let's break it down.</p>
+          <h4>The Exposure Triangle:</h4>
+          <ul>
+            <li><strong>Aperture (f-stop):</strong> Controls depth of field. Lower f-number = blurrier background (good for portraits). Higher f-number = everything in focus (good for landscapes).</li>
+            <li><strong>Shutter Speed:</strong> Controls motion blur. Fast = freeze action. Slow = motion blur (good for light trails).</li>
+            <li><strong>ISO:</strong> Sensitivity to light. Low ISO = cleaner image. High ISO = brighter but more noise.</li>
+          </ul>
+          <h4>Exercise:</h4>
+          <p>Set your camera to Manual mode. Take 3 photos of the same subject with different aperture settings. Compare the results. Do the same with shutter speed and ISO.</p>
+          <p>Practice daily and you'll master exposure in weeks!</p>
+        </div>
+      </div>
+    </div>
 
-        // ⚡ FIXED: showDetail with proper image
-        function showDetail(id){
-            var p=findProduct(id);if(!p)return;
-            var price=getPrice(p),offer=hasOffer(p);
-            var html='<div>';
-            // Detail image
-            html+='<div class="detail-image-wrap">';
-            if(p.image&&p.image!=='')html+='<img src="'+p.image+'" alt="'+p.name+'">';
-            else html+='<div class="product-img-placeholder"><i class="fab fa-facebook"></i></div>';
-            html+='</div>';
-            // Info
-            html+='<span style="background:var(--primary);color:white;padding:5px 12px;border-radius:20px;font-size:11px;">'+p.type+'</span> ';
-            if(p.badge)html+='<span style="background:#F59E0B;color:black;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:700;">'+p.badge+'</span>';
-            html+='<h2 style="font-size:1.4rem;font-weight:800;margin:12px 0 6px;">'+p.name+'</h2>';
-            html+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><span style="font-size:1.6rem;font-weight:800;color:var(--primary);">$'+price.toFixed(2)+'</span>';
-            if(offer)html+='<span class="original-price" style="font-size:14px;">$'+p.regPrice.toFixed(2)+'</span><span class="discount-badge" style="font-size:12px;">-'+Math.round((1-p.offerPrice/p.regPrice)*100)+'% OFF</span></div>';
-            html+='<p style="color:var(--gold);font-size:13px;"><i class="fas fa-star"></i> '+p.rating+'/5 | 👥 '+p.buyers+' buyers</p>';
-            html+='<p style="color:#64748b;margin:8px 0;font-size:13px;">'+p.desc+'</p>';
-            html+='<p style="color:'+(p.stock>0?'var(--success)':'var(--danger)')+';font-weight:600;font-size:14px;">'+(p.stock>0?'✅ '+p.stock+' units in stock':'❌ Out of stock')+'</p>';
-            html+='<div style="display:flex;gap:8px;margin-top:16px;"><button onclick="addToCart('+p.id+');document.getElementById(\'productDetailModal\').classList.remove(\'active\')" class="add-cart-btn" style="flex:1;padding:13px;font-size:14px;" '+(p.stock===0?'disabled':'')+'>🛒 Add to Cart</button><button onclick="buyNow('+p.id+');document.getElementById(\'productDetailModal\').classList.remove(\'active\')" class="buy-btn" style="flex:1;padding:13px;font-size:14px;" '+(p.stock===0?'disabled':'')+'>⚡ Buy Now</button></div>';
-            html+='</div>';
-            document.getElementById('productDetailContent').innerHTML=html;
-            document.getElementById('productDetailModal').classList.add('active');
-        }
+    <!-- ===== POST 10 ===== -->
+    <div class="post-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?w=600&h=400&fit=crop" alt="Books">
+      </div>
+      <div class="content">
+        <span class="badge">📰 Reviews</span>
+        <h3><a href="#">10 Classic Books You Can Read for Free (Public Domain)</a></h3>
+        <div class="meta"><span>📅 June 10, 2026</span> <span>⏱ 4 min read</span></div>
+        <p class="excerpt">From Pride and Prejudice to Dracula — download free eBooks from Project Gutenberg.</p>
+        <a href="#" class="read-more" onclick="toggleFull(this); return false;">Read Full Article ↓</a>
+        <div class="full-content">
+          <p>Great literature shouldn't cost a fortune. These classic books are in the public domain and free to download.</p>
+          <h4>10 Free Classics:</h4>
+          <ul>
+            <li><strong>Pride and Prejudice</strong> — Jane Austen</li>
+            <li><strong>Dracula</strong> — Bram Stoker</li>
+            <li><strong>Frankenstein</strong> — Mary Shelley</li>
+            <li><strong>Moby-Dick</strong> — Herman Melville</li>
+            <li><strong>The Great Gatsby</strong> — F. Scott Fitzgerald</li>
+            <li><strong>Wuthering Heights</strong> — Emily Brontë</li>
+            <li><strong>Jane Eyre</strong> — Charlotte Brontë</li>
+            <li><strong>The Picture of Dorian Gray</strong> — Oscar Wilde</li>
+            <li><strong>Crime and Punishment</strong> — Fyodor Dostoevsky</li>
+            <li><strong>The Adventures of Huckleberry Finn</strong> — Mark Twain</li>
+          </ul>
+          <p>Download them for free at Project Gutenberg or Standard Ebooks. Read them on any device!</p>
+        </div>
+      </div>
+    </div>
 
-        function closeProductDetail(e){if(e.target===document.getElementById('productDetailModal'))document.getElementById('productDetailModal').classList.remove('active')}
-        function filterProducts(type){currentFilter=type;document.querySelectorAll('.filter-pill').forEach(function(b){b.classList.remove('active')});event.target.classList.add('active');renderProducts(type)}
-        function addToCart(id){if(!currentUser){showLoginModal();notify('Please login!','error');return}var p=findProduct(id);if(!p||p.stock===0){notify('Out of stock!','error');return}var price=getPrice(p),existing=null;for(var i=0;i<cart.length;i++){if(cart[i].productId===id){existing=cart[i];break}}if(existing){if(existing.quantity<p.stock){existing.quantity++;p.stock--}else{notify('No more stock!','error');return}}else{cart.push({productId:id,quantity:1,price:price});p.stock--}save();updateCart();renderProducts(currentFilter);notify('Added!','success')}
-        function buyNow(id){if(!currentUser){showLoginModal();notify('Please login!','error');return}var p=findProduct(id);if(!p||p.stock===0){notify('Out of stock!','error');return}for(var i=0;i<cart.length;i++){var prod=findProduct(cart[i].productId);if(prod)prod.stock+=cart[i].quantity}cart=[{productId:id,quantity:1,price:getPrice(p)}];p.stock--;save();updateCart();checkout()}
-        function updateCart(){var t=0,tp=0;for(var i=0;i<cart.length;i++){t+=cart[i].quantity;tp+=cart[i].price*cart[i].quantity}document.getElementById('cartCount').textContent=t;document.getElementById('cartTotal').textContent='$'+tp.toFixed(2);var html='';if(cart.length===0){html='<p style="text-align:center;color:#94a3b8;padding:30px 0;">Cart empty</p>'}else{for(var j=0;j<cart.length;j++){var item=cart[j],p=findProduct(item.productId);html+='<div style="display:flex;justify-content:space-between;padding:10px;background:#f8fafc;border-radius:10px;margin-bottom:8px;"><div><p style="font-weight:700;font-size:13px;">'+(p?p.name:'Unknown')+'</p><p style="font-size:11px;color:#64748b;">$'+item.price+' x '+item.quantity+'</p></div><div style="text-align:right;"><p style="font-weight:700;">$'+(item.price*item.quantity).toFixed(2)+'</p><button onclick="removeCart('+j+')" style="background:none;border:none;color:var(--danger);cursor:pointer;font-size:12px;">🗑</button></div></div>'}}document.getElementById('cartItems').innerHTML=html}
-        function removeCart(idx){var item=cart[idx],p=findProduct(item.productId);if(p)p.stock+=item.quantity;cart.splice(idx,1);save();updateCart();renderProducts(currentFilter)}
-        function toggleCart(){document.getElementById('cartSidebar').classList.toggle('open');document.getElementById('cartOverlay').classList.toggle('active')}
-        function checkout(){if(!currentUser){showLoginModal();return}if(cart.length===0){notify('Cart empty!','error');return}var total=0;for(var i=0;i<cart.length;i++)total+=cart[i].price*cart[i].quantity;var html='<input type="text" id="cName" required placeholder="Full Name *" style="width:100%;padding:10px;border:2px solid #e2e8f0;border-radius:8px;margin-bottom:8px;font-size:13px;"><input type="email" id="cEmail" required placeholder="Email *" style="width:100%;padding:10px;border:2px solid #e2e8f0;border-radius:8px;margin-bottom:8px;font-size:13px;"><input type="text" id="cContact" placeholder="Telegram/WhatsApp" style="width:100%;padding:10px;border:2px solid #e2e8f0;border-radius:8px;margin-bottom:12px;font-size:13px;"><div style="background:#f8fafc;padding:12px;border-radius:10px;margin-bottom:12px;"><p style="font-weight:700;margin-bottom:8px;">Order Summary</p>';for(var j=0;j<cart.length;j++){var p=findProduct(cart[j].productId);html+='<div style="display:flex;justify-content:space-between;font-size:12px;"><span>'+(p?p.name:'Unknown')+' x'+cart[j].quantity+'</span><span>$'+(cart[j].price*cart[j].quantity).toFixed(2)+'</span></div>'}html+='<div style="border-top:1px solid #e2e8f0;padding-top:8px;margin-top:8px;display:flex;justify-content:space-between;font-weight:700;">Total:<span style="color:var(--primary);">$'+total.toFixed(2)+'</span></div></div><p style="font-weight:700;margin-bottom:8px;">Crypto Payment</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;"><button onclick="selectCrypto(\'USDT\')" style="border:2px solid #e2e8f0;border-radius:10px;padding:12px;text-align:center;background:white;cursor:pointer;font-weight:600;font-size:12px;">💵 USDT</button><button onclick="selectCrypto(\'BTC\')" style="border:2px solid #e2e8f0;border-radius:10px;padding:12px;text-align:center;background:white;cursor:pointer;font-weight:600;font-size:12px;">₿ BTC</button><button onclick="selectCrypto(\'ETH\')" style="border:2px solid #e2e8f0;border-radius:10px;padding:12px;text-align:center;background:white;cursor:pointer;font-weight:600;font-size:12px;">💠 ETH</button><button onclick="selectCrypto(\'LTC\')" style="border:2px solid #e2e8f0;border-radius:10px;padding:12px;text-align:center;background:white;cursor:pointer;font-weight:600;font-size:12px;">🚀 LTC</button></div><div id="cryptoInfo" style="background:linear-gradient(135deg,var(--primary),var(--premium));color:white;padding:12px;border-radius:10px;margin-bottom:12px;display:none;"></div><input type="text" id="cTrxId" required placeholder="Transaction ID (TXID) *" style="width:100%;padding:10px;border:2px solid #e2e8f0;border-radius:8px;margin-bottom:12px;font-size:13px;"><button onclick="submitOrder()" class="btn btn-success" style="width:100%;justify-content:center;padding:14px;font-size:14px;">🔒 Submit Order</button>';document.getElementById('checkoutContent').innerHTML=html;document.getElementById('checkoutModal').classList.add('active');toggleCart()}
-        function closeCheckout(){document.getElementById('checkoutModal').classList.remove('active')}
-        function selectCrypto(crypto){selectedCrypto=crypto;document.getElementById('cryptoInfo').style.display='block';document.getElementById('cryptoInfo').innerHTML='<p style="font-weight:700;">Send '+crypto+' to:</p><p style="background:rgba(255,255,255,0.15);padding:10px;border-radius:8px;font-size:11px;word-break:break-all;">'+CRYPTO[crypto]+'</p><button onclick="copyAddress()" style="color:#FCD34D;background:none;border:none;cursor:pointer;font-size:11px;">📋 Copy</button>'}
-        function copyAddress(){navigator.clipboard.writeText(CRYPTO[selectedCrypto]).then(function(){notify('Copied!','success')})}
-        function submitOrder(){var n=document.getElementById('cName').value.trim(),e=document.getElementById('cEmail').value.trim(),tx=document.getElementById('cTrxId').value.trim();if(!n||!e){notify('Fill name & email!','error');return}if(!selectedCrypto){notify('Select crypto!','error');return}if(!tx){notify('Enter TXID!','error');return}closeCheckout();var total=0;for(var i=0;i<cart.length;i++)total+=cart[i].price*cart[i].quantity;var order={id:'FB'+Date.now(),userId:currentUser.email,customerName:n,customerEmail:e,items:[],total:total,date:new Date().toISOString(),status:'pending',crypto:selectedCrypto,txId:tx};for(var j=0;j<cart.length;j++){order.items.push({productId:cart[j].productId,quantity:cart[j].quantity,price:cart[j].price});var p=findProduct(cart[j].productId);if(p)p.buyers+=cart[j].quantity}orders.push(order);cart=[];save();updateCart();renderProducts(currentFilter);document.getElementById('successModal').classList.add('active')}
-        function showLoginModal(){document.getElementById('loginModal').classList.add('active')}
-        function closeLoginModal(){document.getElementById('loginModal').classList.remove('active')}
-        function switchAuthTab(tab){document.getElementById('loginTabBtn').style.background=tab==='login'?'white':'transparent';document.getElementById('signupTabBtn').style.background=tab==='signup'?'white':'transparent';document.getElementById('loginForm').style.display=tab==='login'?'block':'none';document.getElementById('signupForm').style.display=tab==='signup'?'block':'none'}
-        function handleLogin(e){e.preventDefault();var email=e.target.querySelector('[type="email"]').value,pass=e.target.querySelector('[type="password"]').value,user=null;for(var i=0;i<users.length;i++){if(users[i].email===email&&users[i].password===pass){user=users[i];break}}if(user){currentUser=user;save();updateUserUI();closeLoginModal();notify('Welcome!','success')}else notify('Invalid!','error')}
-        function handleSignup(e){e.preventDefault();var n=e.target.querySelector('[type="text"]').value,em=e.target.querySelector('[type="email"]').value,pa=e.target.querySelector('[type="password"]').value;for(var i=0;i<users.length;i++){if(users[i].email===em){notify('Email exists!','error');return}}var user={name:n,email:em,password:pa,joinDate:new Date().toISOString()};users.push(user);currentUser=user;save();updateUserUI();closeLoginModal();notify('Created!','success')}
-        function logoutUser(){currentUser=null;save();updateUserUI();notify('Logged out!','success')}
-        function updateUserUI(){if(currentUser){document.querySelector('.header-actions .btn-primary').style.display='none';document.getElementById('loggedInUser').style.display='inline';document.getElementById('loggedInUser').textContent='👤 '+currentUser.name;document.getElementById('logoutBtn').style.display='inline-flex'}else{document.querySelector('.header-actions .btn-primary').style.display='inline-flex';document.getElementById('loggedInUser').style.display='none';document.getElementById('logoutBtn').style.display='none'}}
-        function showDashboard(){if(!currentUser){showLoginModal();return}var uo=orders.filter(function(o){return o.userId===currentUser.email});document.getElementById('dashOrders').textContent=uo.length;document.getElementById('dashConfirmed').textContent=uo.filter(function(o){return o.status==='confirmed'}).length;document.getElementById('dashPending').textContent=uo.filter(function(o){return o.status==='pending'}).length;document.getElementById('dashDownloads').textContent=uo.filter(function(o){return o.status==='confirmed'}).length;var html='';if(uo.length===0){html='<tr><td colspan="6" style="text-align:center;padding:25px;color:#64748b;">No orders</td></tr>'}else{for(var i=uo.length-1;i>=0;i--){var o=uo[i],pnames=[];for(var j=0;j<o.items.length;j++){var p=findProduct(o.items[j].productId);pnames.push((p?p.name:'Unknown')+' x'+o.items[j].quantity)}html+='<tr><td>'+o.id+'</td><td>'+pnames.join(', ')+'</td><td style="font-weight:700;">$'+o.total.toFixed(2)+'</td><td>'+new Date(o.date).toLocaleDateString()+'</td><td><span class="'+(o.status==='confirmed'?'status-confirmed':'status-pending')+'">'+o.status+'</span></td><td>'+(o.status==='confirmed'?'<button onclick="downloadOrder(\''+o.id+'\')" class="btn btn-success" style="font-size:10px;padding:5px 8px;">📥 Download</button>':'<span style="color:#94a3b8;">Waiting</span>')+'</td></tr>'}}document.getElementById('dashOrdersTable').innerHTML=html;document.getElementById('dashboardModal').classList.add('active')}
-        function closeDashboard(){document.getElementById('dashboardModal').classList.remove('active')}
-        function downloadOrder(oid){var o=null;for(var i=0;i<orders.length;i++){if(orders[i].id===oid){o=orders[i];break}}if(o&&o.status==='confirmed'){var html='';for(var j=0;j<o.items.length;j++){var p=findProduct(o.items[j].productId);html+='<div style="background:#f8fafc;padding:12px;border-radius:10px;margin-bottom:10px;"><p style="font-weight:700;margin-bottom:5px;">'+(p?p.name:'Unknown')+' x'+o.items[j].quantity+'</p><div style="background:#1e293b;color:#10B981;padding:12px;border-radius:8px;font-family:monospace;font-size:12px;white-space:pre-wrap;">'+(p?p.delivery:'No data')+'</div><button onclick="copyDel(\''+(p?p.delivery.replace(/'/g,"\\'").replace(/\n/g,'\\n'):'')+'\')" style="color:var(--primary);background:none;border:none;cursor:pointer;font-size:11px;">📋 Copy</button></div>'}document.getElementById('downloadContent').innerHTML=html;document.getElementById('downloadModal').classList.add('active')}}
-        function copyDel(d){navigator.clipboard.writeText(d.replace(/\\n/g,'\n')).then(function(){notify('Copied!','success')})}
-        function toggleMobileMenu(){document.getElementById('mainNav').classList.toggle('open')}
-        function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
-        function notify(msg,type){var n=document.createElement('div');n.style.cssText='position:fixed;top:15px;right:15px;padding:12px 18px;border-radius:10px;color:white;z-index:9999;font-size:13px;font-weight:600;animation:slideUp 0.3s ease;';n.style.background=type==='success'?'#10B981':type==='error'?'#EF4444':'#1877F2';n.textContent=msg;document.body.appendChild(n);setTimeout(function(){n.remove()},3000)}
+    <!-- ===== POST 11 ===== -->
+    <div class="post-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&h=400&fit=crop" alt="Podcasting">
+      </div>
+      <div class="content">
+        <span class="badge">🎵 Music</span>
+        <h3><a href="#">How to Start a Podcast with Zero Budget</a></h3>
+        <div class="meta"><span>📅 June 9, 2026</span> <span>⏱ 6 min read</span></div>
+        <p class="excerpt">Microphone tips, free hosting platforms, and editing software to launch your podcast today.</p>
+        <a href="#" class="read-more" onclick="toggleFull(this); return false;">Read Full Article ↓</a>
+        <div class="full-content">
+          <p>Podcasting is one of the most accessible forms of content creation. Here's how to start without spending money.</p>
+          <h4>Free Podcasting Setup:</h4>
+          <ul>
+            <li><strong>Microphone:</strong> Use your smartphone mic or buy a $20 USB mic later.</li>
+            <li><strong>Recording:</strong> Use Audacity (free) or Zencastr (free tier).</li>
+            <li><strong>Editing:</strong> Audacity or GarageBand (free on Mac).</li>
+            <li><strong>Hosting:</strong> Anchor.fm (free, distributes to all platforms).</li>
+            <li><strong>Artwork:</strong> Use Canva (free) to design your cover.</li>
+          </ul>
+          <h4>Tips for Great Audio:</h4>
+          <ul>
+            <li>Record in a quiet room with soft furnishings.</li>
+            <li>Speak close to the mic (6-8 inches).</li>
+            <li>Use a pop filter (or DIY with a sock!).</li>
+            <li>Edit out long pauses and background noise.</li>
+          </ul>
+          <p>Your first episode can be recorded today. What will you talk about?</p>
+        </div>
+      </div>
+    </div>
 
-        init();renderProducts();updateCart();
-    </script>
+    <!-- ===== POST 12 ===== -->
+    <div class="post-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop" alt="Game Development">
+      </div>
+      <div class="content">
+        <span class="badge">💻 Tech</span>
+        <h3><a href="#">Game Development for Beginners with Godot Engine</a></h3>
+        <div class="meta"><span>📅 June 8, 2026</span> <span>⏱ 9 min read</span></div>
+        <p class="excerpt">Create your first 2D game using the free and open-source Godot game engine.</p>
+        <a href="#" class="read-more" onclick="toggleFull(this); return false;">Read Full Article ↓</a>
+        <div class="full-content">
+          <p>Godot is one of the best free game engines available. It's lightweight, powerful, and uses its own scripting language called GDScript.</p>
+          <h4>Getting Started with Godot:</h4>
+          <ul>
+            <li>Download Godot from the official website (free).</li>
+            <li>Create a new 2D project.</li>
+            <li>Add a Player (KinematicBody2D with a Sprite).</li>
+            <li>Write a simple movement script in GDScript.</li>
+            <li>Add enemies, collectibles, and a score system.</li>
+          </ul>
+          <h4>Sample GDScript Code:</h4>
+          <pre style="background:#f4f4f4; padding:10px; border-radius:8px; overflow-x:auto;">
+extends KinematicBody2D
+var speed = 200
+func _process(delta):
+    var velocity = Vector2()
+    if Input.is_action_pressed("ui_right"): velocity.x += 1
+    if Input.is_action_pressed("ui_left"): velocity.x -= 1
+    if Input.is_action_pressed("ui_down"): velocity.y += 1
+    if Input.is_action_pressed("ui_up"): velocity.y -= 1
+    velocity = velocity.normalized() * speed
+    move_and_collide(velocity * delta)
+          </pre>
+          <p>Godot's documentation is excellent. Follow their "Your First 2D Game" tutorial for a complete beginner guide.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== POST 13 ===== -->
+    <div class="post-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1531851575047-8f58c8fc5b9a?w=600&h=400&fit=crop" alt="Color Theory">
+      </div>
+      <div class="content">
+        <span class="badge">🎨 Art</span>
+        <h3><a href="#">Color Theory for Designers: A Practical Guide</a></h3>
+        <div class="meta"><span>📅 June 7, 2026</span> <span>⏱ 5 min read</span></div>
+        <p class="excerpt">Understand color harmonies, palettes, and psychology to improve your design work instantly.</p>
+        <a href="#" class="read-more" onclick="toggleFull(this); return false;">Read Full Article ↓</a>
+        <div class="full-content">
+          <p>Color is one of the most powerful tools in design. Understanding color theory can elevate your work from amateur to professional.</p>
+          <h4>Color Harmonies:</h4>
+          <ul>
+            <li><strong>Complementary:</strong> Colors opposite on the color wheel (red/green, blue/orange). Creates high contrast.</li>
+            <li><strong>Analogous:</strong> Colors next to each other (blue, blue-green, green). Creates harmony and calm.</li>
+            <li><strong>Triadic:</strong> Three colors equally spaced (red/yellow/blue). Vibrant and balanced.</li>
+            <li><strong>Monochromatic:</strong> Variations of one color. Clean and professional.</li>
+          </ul>
+          <h4>Color Psychology:</h4>
+          <ul>
+            <li><strong>Red:</strong> Energy, passion, urgency.</li>
+            <li><strong>Blue:</strong> Trust, calm, professionalism.</li>
+            <li><strong>Yellow:</strong> Optimism, happiness, attention.</li>
+            <li><strong>Green:</strong> Nature, growth, health.</li>
+            <li><strong>Purple:</strong> Luxury, creativity, mystery.</li>
+          </ul>
+          <p>Use tools like Coolors or Adobe Color to create palettes. Test your designs on multiple devices to ensure color accuracy.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== POST 14 ===== -->
+    <div class="post-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1496449903678-68ddcb189a24?w=600&h=400&fit=crop" alt="Stock Photos">
+      </div>
+      <div class="content">
+        <span class="badge">📝 Tutorials</span>
+        <h3><a href="#">Best Free Stock Photo Sites for Bloggers</a></h3>
+        <div class="meta"><span>📅 June 6, 2026</span> <span>⏱ 3 min read</span></div>
+        <p class="excerpt">Unsplash, Pexels, Pixabay, and more — all fully licensed for commercial use.</p>
+        <a href="#" class="read-more" onclick="toggleFull(this); return false;">Read Full Article ↓</a>
+        <div class="full-content">
+          <p>Finding high-quality images for your blog is easy with these free stock photo sites.</p>
+          <h4>Top Free Stock Photo Sites:</h4>
+          <ul>
+            <li><strong>Unsplash:</strong> High-quality images, free for commercial use. No attribution required.</li>
+            <li><strong>Pexels:</strong> Huge library with new images added daily. Free for any use.</li>
+            <li><strong>Pixabay:</strong> Over 2 million images, vectors, and videos. All free.</li>
+            <li><strong>Burst (by Shopify):</strong> Commercial-focused, great for e-commerce.</li>
+            <li><strong>StockVault:</strong> Curated collection with some exclusive images.</li>
+          </ul>
+          <p>Always check the license on each site. Some require attribution, though most don't. Support photographers by crediting when possible!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== POST 15 ===== -->
+    <div class="post-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=600&h=400&fit=crop" alt="UI Design">
+      </div>
+      <div class="content">
+        <span class="badge">💻 Tech</span>
+        <h3><a href="#">UI/UX Design Principles Every Developer Should Know</a></h3>
+        <div class="meta"><span>📅 June 5, 2026</span> <span>⏱ 7 min read</span></div>
+        <p class="excerpt">Boost your web projects with these essential user experience design principles.</p>
+        <a href="#" class="read-more" onclick="toggleFull(this); return false;">Read Full Article ↓</a>
+        <div class="full-content">
+          <p>Great design is invisible. Here are the UI/UX principles that will make your websites and apps delightful to use.</p>
+          <h4>Key Design Principles:</h4>
+          <ul>
+            <li><strong>Simplicity:</strong> Remove unnecessary elements. Less is more.</li>
+            <li><strong>Consistency:</strong> Use the same colors, fonts, and patterns throughout.</li>
+            <li><strong>Feedback:</strong> Let users know what's happening (loading states, hover effects).</li>
+            <li><strong>Affordance:</strong> Make buttons look clickable, links look linkable.</li>
+            <li><strong>Accessibility:</strong> Ensure your site works for everyone (contrast, screen readers).</li>
+            <li><strong>Hierarchy:</strong> Guide the user's eye to the most important information.</li>
+          </ul>
+          <h4>Free Design Tools:</h4>
+          <ul>
+            <li>Figma (free tier) — Design and prototype.</li>
+            <li>Penpot — Open-source alternative to Figma.</li>
+            <li>Coolors — Generate color palettes.</li>
+            <li>FontPair — Find fonts that work together.</li>
+          </ul>
+          <p>Remember: Design is how it works, not just how it looks.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== POST 16 ===== -->
+    <div class="post-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop" alt="Remote Work">
+      </div>
+      <div class="content">
+        <span class="badge">📰 Reviews</span>
+        <h3><a href="#">Best Free Collaboration Tools for Remote Teams</a></h3>
+        <div class="meta"><span>📅 June 4, 2026</span> <span>⏱ 5 min read</span></div>
+        <p class="excerpt">Slack, Trello, Google Workspace, Zoom — and free alternatives that are just as good.</p>
+        <a href="#" class="read-more" onclick="toggleFull(this); return false;">Read Full Article ↓</a>
+        <div class="full-content">
+          <p>Remote work requires the right tools. Here's a list of the best free collaboration software.</p>
+          <h4>Essential Free Tools:</h4>
+          <ul>
+            <li><strong>Communication:</strong> Slack (free plan), Discord, or Microsoft Teams.</li>
+            <li><strong>Project Management:</strong> Trello, Asana (free tier), or Notion.</li>
+            <li><strong>Video Conferencing:</strong> Zoom (40-min free), Jitsi Meet (open-source).</li>
+            <li><strong>Document Collaboration:</strong> Google Docs, OnlyOffice, or CryptPad.</li>
+            <li><strong>File Sharing:</strong> Google Drive, OneDrive, or Dropbox (free tier).</li>
+          </ul>
+          <p>Tip: Use open-source alternatives when possible to maintain privacy and data control.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== POST 17 ===== -->
+    <div class="post-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop" alt="Creative Writing">
+      </div>
+      <div class="content">
+        <span class="badge">📝 Tutorials</span>
+        <h3><a href="#">Creative Writing Prompts to Inspire Your Next Story</a></h3>
+        <div class="meta"><span>📅 June 3, 2026</span> <span>⏱ 4 min read</span></div>
+        <p class="excerpt">Overcome writer's block with these 50+ prompts for fiction, poetry, and screenwriting.</p>
+        <a href="#" class="read-more" onclick="toggleFull(this); return false;">Read Full Article ↓</a>
+        <div class="full-content">
+          <p>Stuck for ideas? Use these writing prompts to kickstart your creativity.</p>
+          <h4>50 Creative Writing Prompts:</h4>
+          <ul>
+            <li>A character wakes up with no memory of the past 10 years.</li>
+            <li>Write a story where the villain is actually the hero.</li>
+            <li>Two strangers realize they're having the same dream.</li>
+            <li>A world where people can buy extra time.</li>
+            <li>A young inventor discovers their creation can bring things back to life.</li>
+            <li>A thief who steals bad memories instead of objects.</li>
+            <li>A city that moves on a giant creature's back.</li>
+            <li>The last conversation between two people before one leaves forever.</li>
+            <li>A musician who can make people feel exactly what the music expresses.</li>
+            <li>A person who finds a door that leads to yesterday.</li>
+          </ul>
+          <p>Write 500 words every day using a new prompt. Share your work on platforms like Wattpad or Medium!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== POST 18 ===== -->
+    <div class="post-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&h=400&fit=crop" alt="Fashion Photography">
+      </div>
+      <div class="content">
+        <span class="badge">🎨 Art</span>
+        <h3><a href="#">Fashion Photography Tips for Aspiring Photographers</a></h3>
+        <div class="meta"><span>📅 June 2, 2026</span> <span>⏱ 6 min read</span></div>
+        <p class="excerpt">Lighting, posing, and editing techniques to make your fashion portraits stand out.</p>
+        <a href="#" class="read-more" onclick="toggleFull(this); return false;">Read Full Article ↓</a>
+        <div class="full-content">
+          <p>Fashion photography combines art, technique, and storytelling. Here's how to excel.</p>
+          <h4>Essential Tips:</h4>
+          <ul>
+            <li><strong>Lighting:</strong> Natural light works best. Golden hour is your friend. Use reflectors to bounce light.</li>
+            <li><strong>Posing:</strong> Guide your model. Tell them to shift weight, angle shoulders, and interact with the environment.</li>
+            <li><strong>Location:</strong> Urban settings, nature, or studio. Match location to the fashion style.</li>
+            <li><strong>Editing:</strong> Use Lightroom or Darktable (free) for color grading and retouching.</li>
+          </ul>
+          <h4>Gear on a Budget:</h4>
+          <ul>
+            <li>Entry-level DSLR or mirrorless (Canon, Nikon, Sony).</li>
+            <li>50mm prime lens (great for portraits).</li>
+            <li>Reflector ($20) and a basic tripod.</li>
+          </ul>
+          <p>Build a portfolio by shooting friends in interesting locations. Post on Instagram and Behance to showcase your work.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== POST 19 ===== -->
+    <div class="post-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop" alt="3D Modeling">
+      </div>
+      <div class="content">
+        <span class="badge">💻 Tech</span>
+        <h3><a href="#">3D Modeling for Free with Blender: Getting Started</a></h3>
+        <div class="meta"><span>📅 June 1, 2026</span> <span>⏱ 8 min read</span></div>
+        <p class="excerpt">Learn the basics of Blender — the most powerful free 3D software available today.</p>
+        <a href="#" class="read-more" onclick="toggleFull(this); return false;">Read Full Article ↓</a>
+        <div class="full-content">
+          <p>Blender is a complete 3D creation suite. It's used for animation, VFX, game development, and more.</p>
+          <h4>Blender Basics:</h4>
+          <ul>
+            <li>Download Blender from the official website (free).</li>
+            <li>Learn the interface: 3D viewport, outliner, properties panel.</li>
+            <li>Start with primitive shapes: cube, sphere, cylinder.</li>
+            <li>Use edit mode to modify vertices, edges, and faces.</li>
+            <li>Add materials and textures using the Shader Editor.</li>
+            <li>Render with Cycles (realistic) or Eevee (real-time).</li>
+          </ul>
+          <h4>Beginner Projects:</h4>
+          <ul>
+            <li>Model a simple chair.</li>
+            <li>Create a low-poly house.</li>
+            <li>Animate a bouncing ball.</li>
+            <li>Design a basic character.</li>
+          </ul>
+          <p>Follow Blender Guru's donut tutorial — it's the best way to start learning.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== POST 20 ===== -->
+    <div class="post-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&h=400&fit=crop" alt="Blogging Tips">
+      </div>
+      <div class="content">
+        <span class="badge">📰 Reviews</span>
+        <h3><a href="#">How to Start a Successful Blog in 2026</a></h3>
+        <div class="meta"><span>📅 May 31, 2026</span> <span>⏱ 7 min read</span></div>
+        <p class="excerpt">Step-by-step guide from choosing a niche to monetization — all with free tools.</p>
+        <a href="#" class="read-more" onclick="toggleFull(this); return false;">Read Full Article ↓</a>
+        <div class="full-content">
+          <p>Blogging is still one of the best ways to build an audience and make money online. Here's how to start.</p>
+          <h4>Step-by-Step Guide:</h4>
+          <ul>
+            <li><strong>Choose a niche:</strong> Pick something you're passionate about and that has an audience.</li>
+            <li><strong>Pick a platform:</strong> WordPress (free), Blogger (free), or Medium (free).</li>
+            <li><strong>Select a domain:</strong> Use Namecheap or Google Domains (cheap).</li>
+            <li><strong>Write quality content:</strong> Aim for 1000+ word articles that provide value.</li>
+            <li><strong>SEO basics:</strong> Use keywords naturally, write meta descriptions, and use headings.</li>
+            <li><strong>Promote:</strong> Share on social media, Pinterest, and engage in communities.</li>
+          </ul>
+          <h4>Monetization:</h4>
+          <ul>
+            <li>Google AdSense (display ads).</li>
+            <li>Affiliate marketing (Amazon Associates, ShareASale).</li>
+            <li>Sponsored posts (once you have traffic).</li>
+            <li>Digital products (e-books, courses).</li>
+          </ul>
+          <p>Consistency is key. Post at least once a week for the first 6 months. Use Canva for graphics and Grammarly for editing.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /post-grid -->
+
+  <!-- ===== SIDEBAR ===== -->
+  <div class="sidebar">
+    <div>
+      <h4>🔥 Popular Categories</h4>
+      <ul>
+        <li><a href="#">🎬 Movies (28)</a></li>
+        <li><a href="#">🎵 Music (19)</a></li>
+        <li><a href="#">🎨 Art (22)</a></li>
+        <li><a href="#">💻 Tech (31)</a></li>
+        <li><a href="#">📝 Tutorials (17)</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>📌 Recent Comments</h4>
+      <ul>
+        <li><a href="#">Sarah on "Top 10 Classic Films..."</a></li>
+        <li><a href="#">Mike on "How to Produce Music..."</a></li>
+        <li><a href="#">Emma on "Digital Painting..."</a></li>
+        <li><a href="#">James on "Build Your First Website..."</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>📧 Newsletter</h4>
+      <p style="font-size:0.9rem; color:#555;">Get weekly free resources in your inbox.</p>
+      <input type="email" placeholder="Your email">
+      <button>Subscribe</button>
+    </div>
+  </div>
+
+  <!-- ===== PRIVACY POLICY ===== -->
+  <div class="privacy-section" id="privacy">
+    <h2>🔒 Privacy Policy</h2>
+    <p><strong>Last updated:</strong> June 19, 2026</p>
+
+    <h3>1. Information We Collect</h3>
+    <p>We collect minimal anonymous data to improve your experience. This includes:</p>
+    <ul>
+      <li>Browser type and version</li>
+      <li>Pages visited and time spent</li>
+      <li>Referring website (if any)</li>
+    </ul>
+    <p>We <strong>do not</strong> collect names, email addresses, or payment information unless you voluntarily subscribe to our newsletter.</p>
+
+    <h3>2. Cookies</h3>
+    <p>We use essential cookies for functionality and optional analytics cookies (Google Analytics with anonymized IP). You can manage cookie preferences in your browser settings.</p>
+
+    <h3>3. Third-Party Services</h3>
+    <p>We may use:</p>
+    <ul>
+      <li><strong>Google Analytics</strong> — anonymized traffic analysis</li>
+      <li><strong>Ad Networks</strong> — only family-friendly, GDPR-compliant ads</li>
+      <li><strong>Unsplash/Pexels</strong> — for free images (no tracking)</li>
+    </ul>
+
+    <h3>4. Data Security</h3>
+    <p>All data is encrypted and stored securely. We never sell, trade, or share your personal information with third parties.</p>
+
+    <h3>5. Your Rights (GDPR/CCPA)</h3>
+    <p>You have the right to:</p>
+    <ul>
+      <li>Request access to your data</li>
+      <li>Request deletion of your data</li>
+      <li>Opt out of analytics cookies</li>
+    </ul>
+    <p>To exercise these rights, email: <strong>privacy@creativehub.com</strong></p>
+
+    <h3>6. Children's Privacy</h3>
+    <p>Our site is safe for all ages. We do not knowingly collect data from children under 13.</p>
+
+    <h3>7. Changes to This Policy</h3>
+    <p>We may update this policy occasionally. The latest version will always be posted here.</p>
+
+    <h3>8. Contact Us</h3>
+    <p>📧 Email: privacy@creativehub.com<br>📬 Address: 123 Creative Lane, Digital City, 10001</p>
+  </div>
+
+</div><!-- /container -->
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-links">
+    <a href="#">🏠 Home</a>
+    <a href="#">📝 About</a>
+    <a href="#">🔒 Privacy Policy</a>
+    <a href="#">📧 Contact</a>
+    <a href="#">🍪 Cookie Policy</a>
+  </div>
+  <p style="margin-bottom:8px;">© 2026 CreativeHub — All content is original or properly licensed under CC0/Public Domain.</p>
+  <p class="copy">Built with ❤️ and free tools. Ads are family-friendly and privacy-respecting.</p>
+</footer>
+
+<script>
+function toggleFull(el) {
+  var fullContent = el.parentElement.querySelector('.full-content');
+  if (fullContent.classList.contains('show')) {
+    fullContent.classList.remove('show');
+    el.textContent = 'Read Full Article ↓';
+  } else {
+    fullContent.classList.add('show');
+    el.textContent = 'Show Less ↑';
+  }
+}
+</script>
+
 </body>
 </html>
